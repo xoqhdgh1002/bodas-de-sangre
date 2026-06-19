@@ -202,6 +202,19 @@ body{background:#070710;color:var(--ink);font-family:var(--sans);overflow:hidden
 .qcards{width:100%}
 .qc{text-align:left}
 .person .sub{text-align:center}
+
+/* ===== 달의 독백 (시) 슬라이드 ===== */
+.moon-slide .stage{background:radial-gradient(120% 130% at 50% 12%,#1b2440 0%,#0a0a16 60%)}
+.moon-slide .pad{justify-content:center}
+.moonglyph{font-size:9cqmin;line-height:1;margin:1cqmin 0 3cqmin;
+  filter:drop-shadow(0 0 4cqmin rgba(201,168,76,.5))}
+.poem{font-family:var(--serif);color:#f1e8db;font-size:4cqmin;line-height:1.95;letter-spacing:.01em}
+.poem .pl{color:#ff9b86;font-weight:700}
+.poemby{color:var(--gold);font-size:2.7cqmin;margin-top:3cqmin;font-weight:700;letter-spacing:.04em}
+.videolink{display:inline-block;margin-top:4cqmin;color:#fff;background:var(--blood);
+  text-decoration:none;font-weight:700;font-size:2.7cqmin;padding:1.1cqmin 3cqmin;border-radius:6cqmin;
+  border:1px solid rgba(255,255,255,.15);transition:.15s}
+.videolink:hover{background:var(--blood2)}
 </style>
 </head>
 <body>
@@ -354,7 +367,28 @@ body{background:#070710;color:var(--ink);font-family:var(--sans);overflow:hidden
     </div>
   </section>
 
-  <!-- 8 토론 -->
+  <!-- 8 달의 독백 (시) -->
+  <section class="slide moon-slide">
+    <div class="stage"><div class="bar"></div>
+      <div class="pad">
+        <div class="kicker">시 — 달의 독백 <span class="pgchip">6장</span></div>
+        <div class="moonglyph">🌙</div>
+        <div class="poem">
+          나는 강 위의 백조,<br>
+          나뭇잎에 번쩍이는 새벽빛처럼 아련한 나.<br>
+          아무도 달아나지 못한다.<br>
+          <span class="pl">오늘 밤에는 내 뺨에도 붉은 피가 물들 것 같다.</span><br>
+          숨는 자는 누구냐, 당장 나와라!<br>
+          도망가게 내버려 두지는 않을 것이다.
+        </div>
+        <div class="poemby">— 달(Luna) · 죽음을 예고하다</div>
+        <a class="videolink" href="https://www.youtube.com/watch?v=uppzUfyNpQU&t=4210s" target="_blank">▶ 낭송 영상 보기 (TVE 전막 · 70:10~)</a>
+      </div>
+      <div class="pg">08</div>
+    </div>
+  </section>
+
+  <!-- 9 토론 -->
   <section class="slide">
     <div class="stage"><div class="bar"></div>
       <div class="pad">
@@ -365,11 +399,11 @@ body{background:#070710;color:var(--ink);font-family:var(--sans);overflow:hidden
           <div class="qc"><span class="qn">3</span><p>“죄가 없다”는 어머니 — <b>피해자</b>인가 <b>가해자</b>인가?</p></div>
         </div>
       </div>
-      <div class="pg">08</div>
+      <div class="pg">09</div>
     </div>
   </section>
 
-  <!-- 9 낭독 -->
+  <!-- 10 낭독 -->
   <section class="slide">
     <div class="stage"><div class="bar"></div>
       <div class="pad">
@@ -384,7 +418,7 @@ body{background:#070710;color:var(--ink);font-family:var(--sans);overflow:hidden
           <div class="tagline">🎙️ 무대도 없고, 의상도 없어요. <b>목소리만으로.</b></div>
         </div>
       </div>
-      <div class="pg">09</div>
+      <div class="pg">10</div>
     </div>
   </section>
 
