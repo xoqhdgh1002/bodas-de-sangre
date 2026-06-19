@@ -175,6 +175,33 @@ body{background:#070710;color:var(--ink);font-family:var(--sans);overflow:hidden
 .progress{position:fixed;top:0;left:0;height:3px;background:var(--blood);z-index:20;transition:width .35s ease;box-shadow:0 0 10px rgba(192,57,43,.6)}
 .hint{position:fixed;bottom:14px;right:16px;color:#5a5a72;font-size:12px;z-index:20}
 @media(max-width:640px){.hint{display:none}.hud{bottom:10px}}
+
+/* ===== 균형 잡힌 가운데 정렬 (왼쪽 치우침 해소) ===== */
+.bar{left:50%;right:auto;top:4.4cqmin;bottom:auto;transform:translateX(-50%);
+  width:26cqmin;height:.65cqmin;border-radius:1cqmin;
+  background:linear-gradient(90deg,transparent,var(--blood) 35%,var(--blood) 65%,transparent)}
+.title-slide .bar{display:none}
+.pad{padding:7cqmin 8cqmin 6cqmin;text-align:center;align-items:center}
+.kicker{justify-content:center;text-align:center}
+.h2{justify-content:center;text-align:center}
+.tags{justify-content:center}
+.vs{width:100%}
+.vsx{align-self:center}
+.devs{width:100%;justify-content:center}
+.dev{text-align:left}
+.biotl{width:fit-content;max-width:100%;margin:4cqmin auto 0;text-align:left}
+.flow{justify-content:center;width:100%}
+.tl-lab{text-align:center}
+.tl-mid{margin-left:auto;margin-right:auto}
+.rel,.flee,.intruder{justify-content:center;width:100%}
+.namebox{flex:0 1 auto;max-width:62%}
+.callresp{align-items:center;width:100%}
+.bigquote{width:fit-content;max-width:92%;margin:1cqmin auto;text-align:left}
+.think{width:fit-content;max-width:92%;margin:3cqmin auto 0;text-align:left}
+.chorusnote{text-align:center}
+.qcards{width:100%}
+.qc{text-align:left}
+.person .sub{text-align:center}
 </style>
 </head>
 <body>
