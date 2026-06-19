@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>피의 결혼식 — 발제 스크립트 v2</title>
+<style>
+:root{
+  --bg:#f6f1e9;--panel:#fffdfa;--ink:#2b2320;--muted:#897c74;
+  --blood:#8b1a1a;--gold:#9a7b3f;--rule:#e6ddcf;
+  --aA:#1d5e7a;--aB:#a8324a;
+  --slide-bg:#17120f;--slide-ink:#efe3d4;--slide-acc:#d98a3a;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:"Noto Sans KR","Apple SD Gothic Neo",sans-serif;
+  line-height:1.88;font-size:17.5px;word-break:keep-all;overflow-wrap:break-word;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+.wrap{max-width:800px;margin:0 auto;padding:0 24px 130px}
+
+/* cover */
+.cover-h{text-align:center;padding:64px 16px 30px}
+.cover-h .kick{letter-spacing:.4em;font-size:.7rem;color:var(--blood);font-weight:700;margin:0 0 16px}
+.cover-h h1{font-family:"Noto Serif KR",serif;font-size:2.9rem;font-weight:800;margin:0;letter-spacing:.02em}
+.cover-h h1 .d{color:var(--blood)}
+.cover-h .sub{margin-top:8px;color:var(--muted);font-family:"Noto Serif KR",serif;font-size:1.05rem}
+.cover-h .meta{display:flex;justify-content:center;flex-wrap:wrap;margin-top:20px}
+.cover-h .meta span{position:relative;padding:0 15px;color:var(--muted);font-size:.88rem}
+.cover-h .meta span+span::before{content:"";position:absolute;left:0;top:50%;transform:translateY(-50%);width:1px;height:12px;background:var(--rule)}
+.orn{width:120px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:24px auto 0}
+
+.legend{background:var(--panel);border:1px solid var(--rule);border-radius:12px;padding:13px 20px;margin:22px 0 4px;font-size:.88rem;color:#5b524c}
+.legend ul{margin:0;padding-left:18px}
+.legend li{margin:3px 0}.legend b{color:var(--ink)}
+
+.toc{position:sticky;top:0;z-index:6;background:rgba(246,241,233,.94);backdrop-filter:blur(6px);
+  border-bottom:1px solid var(--rule);display:flex;gap:6px;flex-wrap:wrap;justify-content:center;padding:10px;margin:16px 0 10px}
+.toc a{display:inline-flex;align-items:center;gap:6px;font-size:.8rem;text-decoration:none;color:var(--muted);
+  padding:5px 11px;border-radius:999px;border:1px solid transparent;transition:.15s}
+.toc a b{display:inline-grid;place-items:center;width:1.5em;height:1.5em;border-radius:50%;background:var(--rule);color:var(--ink);font-size:.72rem}
+.toc a:hover{color:var(--blood);background:#fff;border-color:var(--rule)}
+.toc a:hover b{background:var(--blood);color:#fff}
+
+/* section (slide + its script) */
+.stage{margin:30px 0 6px;padding-top:14px}
+.stage-head{display:flex;align-items:center;gap:12px;margin:0 0 16px}
+.stage-head .snum{display:inline-grid;place-items:center;width:2em;height:2em;border-radius:50%;
+  background:var(--blood);color:#fff;font-weight:800;font-size:.92rem;font-family:"Noto Serif KR",serif;
+  box-shadow:0 3px 10px rgba(139,26,26,.28)}
+.stage-head .stitle{flex:1;font-size:1.3rem;font-weight:800;font-family:"Noto Serif KR",serif}
+.stage-head .shint{font-size:.72rem;letter-spacing:.08em;color:var(--muted);font-weight:600}
+
+/* slide preview figure */
+.slidefig{margin:0 0 18px}
+.slidefig figcaption{text-align:center;color:var(--muted);font-size:.76rem;margin-top:8px;letter-spacing:.04em}
+
+.slidecard{position:relative;width:100%;max-width:560px;margin:0 auto;aspect-ratio:16/9;
+  background:radial-gradient(120% 140% at 80% 10%,#241a14 0%,var(--slide-bg) 60%);
+  color:var(--slide-ink);border-radius:14px;border:1px solid #312720;
+  padding:5.2% 6.5%;overflow:hidden;display:flex;flex-direction:column;justify-content:center;
+  box-shadow:0 14px 34px rgba(35,22,15,.28),inset 0 0 0 1px rgba(255,220,170,.04);
+  font-size:clamp(11px,2.5vw,16px);line-height:1.5}
+.slidecard .pgnum{position:absolute;right:14px;bottom:9px;font-size:.66em;color:#7a685a;font-weight:700;letter-spacing:.1em}
+.slidecard::before{content:"";position:absolute;left:0;top:0;width:5px;height:100%;
+  background:linear-gradient(180deg,var(--blood),#3a1410)}
+.ss-kicker{color:var(--slide-acc);font-weight:800;font-size:1.15em;letter-spacing:.02em;margin-bottom:.5em}
+.ss-kicker.big{font-size:1.5em;margin-bottom:.7em}
+.ss-subtitle{font-family:"Noto Serif KR",serif;font-weight:800;font-size:1.7em;color:#fff;margin:-.15em 0 .55em}
+.ss-body{color:#d8cbbc;margin:.18em 0;font-size:.96em}
+.ss-def{margin:.2em 0;color:#e8dccd}.ss-def b{color:#fff}
+.ss-bullet{margin:.22em 0;color:#dccfc0;padding-left:.2em}.ss-bullet b{color:var(--slide-acc)}
+.ss-quote{font-family:"Noto Serif KR",serif;font-style:italic;color:#fff;font-size:1.12em;
+  border-left:2px solid var(--slide-acc);padding-left:.6em;margin:.35em 0}
+.ss-page{display:inline-block;align-self:flex-start;background:rgba(217,138,58,.16);color:var(--slide-acc);
+  border:1px solid rgba(217,138,58,.35);border-radius:6px;padding:.1em .6em;font-size:.8em;font-weight:700;margin:.35em 0}
+.ss-think{margin-top:.5em;color:#f0c9a0;font-size:.95em}
+.ss-think .lab{display:inline-block;background:var(--blood);color:#fff;border-radius:5px;padding:.05em .5em;font-size:.78em;font-weight:700;margin-right:.5em}
+.ss-vs{display:flex;align-items:center;gap:.6em;font-family:"Noto Serif KR",serif;font-weight:800;font-size:1.7em;color:#fff;margin:.1em 0 .3em}
+.ss-vs em{font-style:normal;color:var(--blood);font-size:.7em;font-weight:900}
+/* cover slide */
+.slidecard.cover{align-items:center;text-align:center;justify-content:center}
+.cover .ss-latin{letter-spacing:.34em;color:var(--slide-acc);font-size:.95em;font-weight:700;text-transform:uppercase}
+.cover .ss-maintitle{font-family:"Noto Serif KR",serif;font-weight:800;font-size:2.7em;color:#fff;margin:.18em 0 0}
+.cover .ss-rule{width:46px;height:2px;background:var(--blood);margin:.6em 0}
+.cover .ss-author{color:#d8cbbc;font-size:.98em}
+.cover .ss-club{color:#8d7a6a;font-size:.85em;margin-top:.2em}
+.slidecard.cover .ss-rule{align-self:center}
+.slidecard.cover{padding:6%}
+.cover .ss-author,.cover .ss-club{text-align:center}
+/* slide 2 */
+.ss-name{font-family:"Noto Serif KR",serif;color:#fff;font-size:1.5em;font-weight:700}
+.ss-dates{color:var(--slide-acc);font-size:.9em;margin-bottom:.45em;font-weight:600}
+/* slide 7 talk */
+.slidecard.talk{justify-content:center}
+.ss-q{display:flex;gap:.6em;align-items:baseline;color:#e6dacb;margin:.32em 0;font-size:.98em}
+.ss-q .qn{flex:0 0 auto;display:inline-grid;place-items:center;width:1.5em;height:1.5em;border-radius:50%;
+  background:var(--blood);color:#fff;font-size:.78em;font-weight:800}
+
+/* script area */
+.script{max-width:680px;margin:0 auto;padding:4px 2px 2px}
+.line{display:grid;grid-template-columns:2em 1fr;gap:0 13px;margin:0 0 14px;align-items:start}
+.line .who{display:inline-grid;place-items:center;width:1.8em;height:1.8em;border-radius:50%;
+  font-weight:800;font-size:.8rem;color:#fff;margin-top:.15em}
+.spk-A .who{background:var(--aA)}.spk-B .who{background:var(--aB)}
+.spk-A .say{border-left:2px solid color-mix(in srgb,var(--aA) 28%,transparent)}
+.spk-B .say{border-left:2px solid color-mix(in srgb,var(--aB) 24%,transparent)}
+.line .say{padding-left:13px;line-height:1.9}
+.cue{display:inline-block;margin:4px 0 14px 0;padding:5px 14px;border-radius:999px;
+  background:#f3ead7;color:#8a6d2a;border:1px solid #e6d6b0;font-size:.85rem;font-style:italic;font-weight:600}
+.cue-inline{font-style:italic;color:#8a6d2a;font-weight:600}
+.bullet{padding:8px 15px;margin:9px 0;background:#f1eadd;border-left:3px solid var(--gold);border-radius:0 8px 8px 0;font-size:.98rem}
+.bullet b{color:var(--blood)}
+.ptext{margin:8px 0}
+.q{color:#7a2e2e;background:#f6ecec;border-radius:4px;padding:0 4px}
+
+.foot{margin-top:40px;padding-top:18px;border-top:1px solid var(--rule);color:var(--muted);font-size:.85rem}
+.foot ul{margin:0;padding-left:18px}
+
+@media(max-width:600px){
+  body{font-size:16px}
+  .wrap{padding:0 16px 110px}
+  .cover-h h1{font-size:2.2rem}
+  .stage-head .stitle{font-size:1.12rem}
+  .stage-head .shint{display:none}
+  .line{grid-template-columns:1.6em 1fr;gap:0 9px}
+  .slidecard{max-width:100%}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="cover-h">
+    <p class="kick">BODAS DE SANGRE · 발제 진행 대본</p>
+    <h1>피<span class="d">의</span> 결혼식</h1>
+    <div class="sub">슬라이드별 진행 스크립트</div>
+    <div class="meta"><span>SANS 연극클럽</span><span>두 사람 진행</span><span>약 7~8분 (낭독 제외)</span></div>
+    <div class="orn"></div>
+  </header>
+  <div class="legend"><ul><li>A / B 구분은 편의상이며 자유롭게 바꿔도 됩니다.</li><li><span class="cue-inline">(멈춤)</span> 표시는 청중 반응을 기다리거나 슬라이드를 짚는 포인트입니다.</li></ul></div>
+  <nav class="toc"><a href="#s1"><b>1</b>표지</a><a href="#s2"><b>2</b>작가</a><a href="#s3"><b>3</b>작품 특징</a><a href="#s4"><b>4</b>줄거리 ①</a><a href="#s5"><b>5</b>줄거리 ②</a><a href="#s6"><b>6</b>줄거리 ③</a><a href="#s7"><b>7</b>토론</a><a href="#s8"><b>8</b>낭독</a></nav>
+  <section class="stage" id="s1"><div class="stage-head"><span class="snum">1</span><span class="stitle">표지</span><span class="shint">슬라이드 1 / 8</span></div><figure class="slidefig"><div class="slidecard cover" data-n="1"><div class="ss-latin">Bodas de Sangre</div><div class="ss-maintitle">피의 결혼식</div><div class="ss-rule"></div><div class="ss-author">Federico García Lorca</div><div class="ss-club">SANS 연극클럽</div><span class="pgnum">1</span></div><figcaption>▲ 스크린에 띄우는 화면</figcaption></figure><div class="script"><div class="line spk-A"><span class="who">A</span><span class="say">안녕하세요, 오늘 피의 결혼식 발제 맡은 ___예요.</span></div>
+<div class="line spk-B"><span class="who">B</span><span class="say">___이고요. 다들 읽어오셨죠? 바로 시작할게요.</span></div></div></section>
+<section class="stage" id="s2"><div class="stage-head"><span class="snum">2</span><span class="stitle">작가</span><span class="shint">슬라이드 2 / 8</span></div><figure class="slidefig"><div class="slidecard" data-n="2"><div class="ss-kicker">작가</div><div class="ss-name">Federico García Lorca</div><div class="ss-dates">1898 — 1936</div><div class="ss-body">유복한 집안 · 아버지는 법률가를 원했다</div><div class="ss-body">그는 글을 썼다</div><div class="ss-body">달리 · 부뉴엘 · 당대 아방가르드를 이끌다</div><div class="ss-body">동성애자 · 집시 옹호 · 공화파 지지</div><div class="ss-body">1936년, 재판 없이 총살</div><span class="pgnum">2</span></div><figcaption>▲ 스크린에 띄우는 화면</figcaption></figure><div class="script"><div class="line spk-A"><span class="who">A</span><span class="say">이 작품 쓴 사람부터 잠깐 얘기할게요. 페데리코 가르시아 로르카. 스페인 남부 안달루시아 출신이에요. 플라멩코, 집시 음악이 있는 그 동네요. 부농의 아들로 유복하게 자랐는데 법률가를 원하는 아버지의 기대를 뒤로하고 마드리드로 올라가요. 당시 스페인 예술의 중심지였거든요.</span></div>
+<div class="line spk-B"><span class="who">B</span><span class="say">거기서 시인으로 먼저 성공해요. 첫 시집 《집시 로만세》가 대히트를 치면서 국민 시인 소리를 들었어요. 그리고 살바도르 달리 — 기억을 녹인 시계 그린 화가, 부뉴엘 — 초현실주의 영화 감독이랑 절친하게 어울리면서 당대 아방가르드를 이끌었어요. 브로맨스가 있었다..라는 이야기가 있었죠. 아무튼 로르카는 시인이면서 극작가였고, <span class="q">&#x27;시를 연극처럼 쓰고 연극을 시처럼 썼다&#x27;</span>는 말이 있을 만큼 둘이 분리가 될 수 없었어요.</span></div>
+<div class="line spk-A"><span class="who">A</span><span class="say">근데 이 화려한 예술계 한가운데서 로르카가 평생 글로 담은 건 — 집시, 흑인, 여성 같은 소외된 존재들이었어요. 본인도 그런 면에서 자유롭지 않았고요. 브로맨스 찍었다 했잖아요ㅎ. 그러다 1936년 내전이 터져요. 프랑코 군부에 맞선 공화파 — 민주주의와 자유를 지향하는 쪽이었어요. 로르카는 그 편이었어요. 전쟁이 터진 지 두 달도 안 돼서 체포되고 재판도 없이 총살당해요. 38살이었어요. 평생 글로 옹호했던 것들이 그를 죽인 이유가 됐어요.</span></div></div></section>
+<section class="stage" id="s3"><div class="stage-head"><span class="snum">3</span><span class="stitle">작품 특징</span><span class="shint">슬라이드 3 / 8</span></div><figure class="slidefig"><div class="slidecard" data-n="3"><div class="ss-kicker">작품 특징</div><div class="ss-vs"><span>피</span><em>vs</em><span>결혼</span></div><div class="ss-def"><b>결혼</b> — 사회가 만든 가장 엄숙한 약속</div><div class="ss-def"><b>피</b> — 혈통, 욕망, 죽음</div><div class="ss-body">어울리지 않는 두 단어가 충돌하는 순간, 비극이 시작된다</div><div class="ss-bullet"><b>리추얼</b> — 결혼 의식으로 시작, 장례 의식으로 끝</div><div class="ss-bullet"><b>역순 구조</b> — 결말 먼저, 과거로 돌아감</div><div class="ss-bullet"><b>코러스 → 광대</b> — 그리스 비극의 코러스, 한국판에서 광대로</div><span class="pgnum">3</span></div><figcaption>▲ 스크린에 띄우는 화면</figcaption></figure><div class="script"><div class="line spk-A"><span class="who">A</span><span class="say">이 작품이 실화에서 출발했다는 거 아세요? 1928년 스페인 신문에 실린 기사예요. 결혼식 날 신부가 전 약혼자와 도망쳤고 — 추격 끝에 그 남자가 총에 맞아 죽은 사건이에요. 짧은 사건 기사 하나예요. 로르카는 거기서 영감을 받았어요.</span></div>
+<div class="line spk-B"><span class="who">B</span><span class="say">근데 로르카가 이걸 그냥 불륜 사건으로 쓰지 않았어요. <span class="q">&#x27;피의 결혼식&#x27;</span>이라는 제목을 붙였어요. 결혼과 피 — 이 두 단어가 같이 있을 수 있을까요? 결혼은 사회가 만든 가장 엄숙한 약속이고 — 피는 혈통이기도 하고 욕망이기도 하고 죽음이기도 해요. 로르카는 이 양립할 수 없는 두 힘을 제목 하나에 박아넣었어요.</span></div>
+<div class="line spk-A"><span class="who">A</span><span class="say">그리고 이 작품에는 특징적인 장치들이 있어요.</span></div>
+<div class="cue">▸ 슬라이드 포인트 세 개 짚으며</div>
+<div class="bullet"><b>리추얼</b> — 결혼 의식으로 시작해서 장례 의식으로 끝나요. 처음부터 끝이 정해져 있는 의식처럼 흘러가는 거예요.</div>
+<div class="bullet"><b>역순 구조</b> — 결말 장면으로 시작해서 과거로 돌아가요. 두 남자가 이미 죽은 걸 알고 보는 구조예요.</div>
+<div class="bullet"><b>코러스, 광대</b> — 읽으면서 광대들 대사가 좀 낯설다 싶으셨죠?</div>
+<div class="line spk-B"><span class="who">B</span><span class="say">그게 사실 대사가 아니에요. 시예요. 로르카가 감정이 폭발하는 순간 일반 대사 대신 시를 집어넣었어요. 그리스 비극의 코러스를 시의 형식으로 부활시킨 거예요. 당시엔 파격이었어요. 초연 배우들이 어떻게 전달해야 할지 몰라서 엄청 힘들어했다는 기록이 있어요. 노래도 아니고 일반 대사도 아닌 그 중간 어딘가 — 리듬을 살리면서 감정을 전달해야 하는 거예요. 우리가 읽으면서 뭔가 낯설다고 느낀 게 바로 그거예요.</span></div>
+<div class="line spk-A"><span class="who">A</span><span class="say">그리고 원작에서 도망친 그 남자에게만 이름이 있어요 — 레오나르도. 근데 우리가 읽은 한국판에서는 그냥 <span class="q">&#x27;사내&#x27;</span>예요. 이름을 지워버린 거예요. 왜 원작에서는 이름을 줬고, 한국판에서는 지웠을까요 — 이건 나중에 같이 얘기해봐요.</span></div></div></section>
+<section class="stage" id="s4"><div class="stage-head"><span class="snum">4</span><span class="stitle">줄거리 ① · 결혼식 전</span><span class="shint">슬라이드 4 / 8</span></div><figure class="slidefig"><div class="slidecard" data-n="4"><div class="ss-kicker">줄거리 01</div><div class="ss-subtitle">결혼식 전</div><div class="ss-body">이 작품은 결말 장면으로 시작해 과거로 돌아간다.</div><div class="ss-page">페이지 005부터 결혼식 이야기가 펼쳐진다.</div><div class="ss-body">결혼을 앞둔 신부. 신랑은 성실하고 좋은 사람이다.</div><div class="ss-body">그런데 결혼식 당일 아침, 초대받지 않은 사내가 나타난다.</div><div class="ss-body">한때 신부가 사랑했던 남자. 이미 결혼한 몸이다.</div><div class="ss-def"><b>원작에서 이 사내에게만 이름이 있다</b> — 레오나르도   왜 이 사람에게만?</div><span class="pgnum">4</span></div><figcaption>▲ 스크린에 띄우는 화면</figcaption></figure><div class="script"><div class="line spk-A"><span class="who">A</span><span class="say">페이지 005부터 결혼식 이야기가 시작돼요. 신부가 옥분한테 머리를 빗기고 있어요. 결혼식 날 아침이에요. 신랑은 성실하고 좋은 사람이에요. 근데 신부 대사가 이래요. <span class="q">&#x27;폭풍우를 몰고 올 시커먼 구름, 가슴을 에이는 듯한 싸늘한 바람.&#x27;</span> 결혼식 날 아침에 이런 말을 하는 거예요. 행복해야 할 날인데.</span></div>
+<div class="line spk-B"><span class="who">B</span><span class="say">그리고 초대받지 않은 사내가 나타나요. 한때 신부가 사랑했던 남자예요. 이미 결혼한 몸이고요. 이 사내가 신부한테 말해요. <span class="q">&#x27;활활 타오르는데 가만히 있으라니, 이보다 더 큰 벌이 어디 있오?&#x27;</span> 신부는 <span class="q">&#x27;가까이 오지 말아요&#x27;</span>라고 하면서도 — <span class="q">&#x27;당신 목소리만 들어도 전 어쩔 줄을 모르겠어요&#x27;</span>라고 해요. 밀면서 당기는 거예요.</span></div>
+<div class="line spk-A"><span class="who">A</span><span class="say">앞에서 이 사내에게만 이름이 있다고 했잖아요. 레오나르도. 근데 우리 버전에서는 그냥 <span class="q">&#x27;사내&#x27;</span>예요. 이름을 지운 거예요. 지금 이 장면 읽으면서 이 사람이 어떻게 느껴지셨어요? 이름이 있는 사람으로 느껴졌나요, 그냥 사내로 느껴졌나요?</span></div>
+<div class="cue">▸ 잠깐 멈춤 — 청중 반응 기다리기</div></div></section>
+<section class="stage" id="s5"><div class="stage-head"><span class="snum">5</span><span class="stitle">줄거리 ② · 도주</span><span class="shint">슬라이드 5 / 8</span></div><figure class="slidefig"><div class="slidecard" data-n="5"><div class="ss-kicker">줄거리 02</div><div class="ss-subtitle">도주</div><div class="ss-body">혼인식이 끝나고 신부가 사라진다.</div><div class="ss-body">사내와 함께 말을 타고 도망쳤다.</div><div class="ss-quote">&quot;누가 먼저 툇마루를 내려왔오?&quot;</div><div class="ss-page">페이지 014 · 사내의 대사</div><div class="ss-think"><span class="lab">생각해볼 점</span>신부의 도주는 선택이었을까?</div><span class="pgnum">5</span></div><figcaption>▲ 스크린에 띄우는 화면</figcaption></figure><div class="script"><div class="line spk-B"><span class="who">B</span><span class="say">혼인식이 끝나고 신부가 사라져요. 사내와 함께 말을 타고 도망쳤어요. 그리고 숲에서 사내가 신부한테 물어요. <span class="q">&#x27;누가 먼저 툇마루를 내려왔오?&#x27;</span> 신부가 대답해요. <span class="q">&#x27;나였어요.&#x27;</span> 근데 바로 이렇게도 말해요. <span class="q">&#x27;나는 가려고 하지 않았어요. 죽을 힘을 다 했어요.&#x27;</span> 행동은 본인이 먼저 했는데 — 마음은 원하지 않았다는 거예요. 이게 앞에서 얘기한 피 vs 결혼이에요. 욕망과 약속이 한 사람 안에서 충돌하는 거예요.</span></div></div></section>
+<section class="stage" id="s6"><div class="stage-head"><span class="snum">6</span><span class="stitle">줄거리 ③ · 결말</span><span class="shint">슬라이드 6 / 8</span></div><figure class="slidefig"><div class="slidecard" data-n="6"><div class="ss-kicker">줄거리 03</div><div class="ss-subtitle">결말</div><div class="ss-body">신랑이 쫓는다. 광대들이 운명을 암시한다.</div><div class="ss-body">두 남자 모두 죽는다. 신부 혼자 돌아온다.</div><div class="ss-quote">&quot;저 여자에겐 죄가 없다. 내게도 없다.</div><div class="ss-body">그렇다면 누구 죄란 말인가?&quot;</div><div class="ss-page">페이지 003 · 어머니의 대사</div><div class="ss-think"><span class="lab">생각해볼 점</span>어머니는 피해자인가, 가해자인가?</div><span class="pgnum">6</span></div><figcaption>▲ 스크린에 띄우는 화면</figcaption></figure><div class="script"><div class="line spk-A"><span class="who">A</span><span class="say">결말은 아까 다 봤잖아요. 신랑이 쫓고, 두 남자 모두 죽어요. 신부 혼자 돌아와요. 어머니가 신부를 때리면서도 이렇게 말해요. <span class="q">&#x27;저 여자에겐 죄가 없다. 내게도 없다. 그렇다면 누구 죄란 말인가?&#x27;</span> 이 작품에서 악인이 없어요. 다들 자기 방식으로 갇혀있었을 뿐인데 — 다 죽었어요.</span></div>
+<div class="line spk-B"><span class="who">B</span><span class="say">자, 그럼 같이 얘기해봐요.</span></div></div></section>
+<section class="stage" id="s7"><div class="stage-head"><span class="snum">7</span><span class="stitle">토론</span><span class="shint">슬라이드 7 / 8</span></div><figure class="slidefig"><div class="slidecard talk" data-n="7"><div class="ss-kicker big">함께 이야기해봐요</div><div class="ss-q"><span class="qn">1</span>신부가 먼저 툇마루를 내려왔다. 이건 선택이었을까?</div><div class="ss-q"><span class="qn">2</span>원작에서 사내에게만 이름이 있다 — 레오나르도. 왜?</div><div class="ss-q"><span class="qn">3</span><span class="q">&quot;저 여자에겐 죄가 없다. 내게도 없다.&quot;</span> 어머니는 피해자인가, 가해자인가?</div><span class="pgnum">7</span></div><figcaption>▲ 스크린에 띄우는 화면</figcaption></figure><div class="script"><div class="line spk-A"><span class="who">A</span><span class="say">첫 번째 — 신부가 먼저 툇마루를 내려왔어요. 근데 본인은 <span class="q">&#x27;가려고 하지 않았다&#x27;</span>고 해요. 이건 선택이었을까요?</span></div>
+<div class="cue">▸ 의견 듣기</div>
+<div class="line spk-B"><span class="who">B</span><span class="say">그러고 보면 — 원작에서 이 사내에게만 이름이 있잖아요. 레오나르도. 나머지는 다 신부, 신랑, 어머니인데. 왜 이 사람에게만 이름을 줬을까요? 그리고 한국판에서는 왜 그 이름을 지웠을까요?</span></div>
+<div class="cue">▸ 의견 듣기</div>
+<div class="line spk-A"><span class="who">A</span><span class="say">마지막으로 어머니요. <span class="q">&#x27;저 여자에겐 죄가 없다. 내게도 없다.&#x27;</span> 근데 어머니가 아들한테 평생 <span class="q">&#x27;저 집안은 원수다&#x27;</span>라고 심어온 사람이기도 해요. 어머니는 피해자인가요, 가해자인가요?</span></div>
+<div class="cue">▸ 의견 듣기</div></div></section>
+<section class="stage" id="s8"><div class="stage-head"><span class="snum">8</span><span class="stitle">낭독</span><span class="shint">슬라이드 8 / 8</span></div><figure class="slidefig"><div class="slidecard" data-n="8"><div class="ss-kicker">낭독</div><div class="ss-subtitle">같이 읽어봐요</div><div class="ss-page">페이지 009</div><div class="ss-quote">&quot;방에 없는데&quot; — 아버지의 대사부터</div><div class="ss-quote">&quot;말을 가져와요&quot; — 어머니의 대사까지</div><div class="ss-body">등장 : 어머니 · 신랑 · 아버지 · 옥분 · 아내</div><div class="ss-body">무대도 없고, 의상도 없어요. 목소리만으로.</div><span class="pgnum">8</span></div><figcaption>▲ 스크린에 띄우는 화면</figcaption></figure><div class="script"><div class="line spk-A"><span class="who">A</span><span class="say">자 이제 같이 읽어봐요. 페이지 009, <span class="q">&#x27;방에 없는데&#x27;</span> 아버지 대사부터 <span class="q">&#x27;말을 가져와요&#x27;</span> 어머니 대사까지예요. 무대도 없고 의상도 없어요. 목소리만으로 가볼게요.</span></div></div></section>
+  <div class="foot"><ul><li>본 스크립트는 가이드라인입니다. 실제 진행 시 본인 말투로 자유롭게 조정해주세요.</li></ul></div>
+</div>
+</body>
+</html>

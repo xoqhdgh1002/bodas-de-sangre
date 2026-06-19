@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>피의 결혼 — 가르시아 로르카</title>
+<style>
+:root{
+  --bg:#f6f1e9; --panel:#fffdfa; --ink:#2b2320; --muted:#8a7d76;
+  --blood:#8b1a1a; --blood2:#b3322a; --gold:#9a7b3f; --rule:#e4dccf;
+  --spkw:5.4em;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:"Noto Serif KR","Nanum Myeongjo","Batang",serif;
+  line-height:2.06; font-size:18.5px; letter-spacing:.002em;
+  word-break:keep-all; overflow-wrap:break-word;
+  -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+}
+.wrap{max-width:740px;margin:0 auto;padding:0 26px 130px}
+
+/* ---- Title page ---- */
+.titlepage{
+  text-align:center; padding:90px 16px 64px; position:relative;
+}
+.titlepage .kicker{letter-spacing:.5em;font-size:.74rem;color:var(--blood);
+  text-transform:uppercase;margin:0 0 26px;font-family:sans-serif;font-weight:600}
+.titlepage h1{
+  font-size:4.2rem;line-height:1.08;margin:0;font-weight:800;letter-spacing:.04em;
+  color:var(--ink);
+}
+.titlepage h1 .drop{color:var(--blood)}
+.titlepage .meta{margin-top:30px;color:var(--muted);font-size:1.02rem;line-height:1.9}
+.titlepage .meta b{color:var(--ink);font-weight:600}
+.ornament{width:120px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  margin:34px auto 0}
+.titlepage .dropicon{font-size:1.6rem;color:var(--blood);margin-top:14px}
+
+/* ---- Scene nav ---- */
+.toc{
+  position:sticky;top:0;z-index:5;background:rgba(247,243,238,.92);
+  backdrop-filter:blur(6px);border-bottom:1px solid var(--rule);
+  display:flex;gap:6px;flex-wrap:wrap;justify-content:center;
+  padding:10px 12px;margin-bottom:14px;
+}
+.toc a{
+  font-family:sans-serif;font-size:.82rem;text-decoration:none;color:var(--muted);
+  padding:5px 12px;border-radius:999px;border:1px solid transparent;transition:.15s;
+}
+.toc a:hover{color:var(--blood);border-color:var(--rule);background:#fff}
+
+.cast{
+  text-align:center;color:var(--muted);font-size:.88rem;font-family:sans-serif;
+  padding:6px 20px 26px;border-bottom:1px dashed var(--rule);margin-bottom:30px;
+}
+.cast .lab{color:var(--blood);font-weight:600;letter-spacing:.12em;margin-right:8px}
+
+/* ---- Scenes ---- */
+.scene{margin:0 0 14px;padding-top:34px}
+.scene-head{
+  display:flex;align-items:center;gap:16px;margin:46px 0 30px;
+  font-size:1.5rem;font-weight:800;color:var(--ink);
+}
+.scene-num{
+  flex:0 0 auto;display:inline-grid;place-items:center;
+  width:2.4em;height:2.4em;border-radius:50%;
+  background:var(--blood);color:#fff;font-size:.72rem;font-weight:700;
+  letter-spacing:.02em;box-shadow:0 4px 14px rgba(139,26,26,.35);
+}
+.scene-label{font-weight:700}
+.scene-head::after{content:"";flex:1;height:1px;background:var(--rule)}
+
+/* ---- Dialogue lines ---- */
+.line{
+  display:grid;grid-template-columns:var(--spkw) 1fr;gap:0 20px;
+  margin:0 0 19px;padding:1px 0;
+}
+.line .spk{
+  text-align:right;font-weight:700;font-size:.86rem;line-height:2.06;
+  color:var(--blood);font-family:"Noto Sans KR",sans-serif;
+  white-space:nowrap;padding-top:.12em;letter-spacing:.01em;
+  border-right:2px solid var(--rule);padding-right:18px;
+}
+.line .say{padding-left:1px}
+.line+.line{margin-top:0}
+
+/* speaker color accents */
+.c-0 .spk{color:#7a1530}   /* 어머니 */
+.c-1 .spk{color:#1d5e7a}   /* 신랑 */
+.c-2 .spk{color:#a8324a}   /* 신부 */
+.c-3 .spk{color:#4a3b86}   /* 사내(레오나르도) */
+.c-4 .spk{color:#2f6d52}   /* 아내 */
+.c-5 .spk{color:#7a5a1d}   /* 아버지 */
+.c-6 .spk{color:#9a5a2a}   /* 옥분 */
+.c-7 .spk{color:#3a3a3a}   /* 거지(죽음) */
+.c-8 .spk{color:#6a6a6a}   /* 이웃여자 */
+.c-9 .spk{color:#2a6a8a}   /* 달 */
+.gwangdae .spk{color:#8a6d2a}
+.c-other .spk{color:#777}
+
+/* ---- Stage directions ---- */
+.stage{
+  font-style:italic;color:#6f635c;background:#efe8dc;
+  border-left:3px solid var(--gold);
+  padding:12px 18px;margin:18px 0;border-radius:0 8px 8px 0;
+  font-size:.95rem;line-height:1.95;
+}
+.inline-stage{font-style:italic;color:#7d716a;font-size:.93em}
+
+/* ---- Footer mark ---- */
+.endmark{text-align:center;color:var(--muted);margin-top:60px;font-family:sans-serif;
+  font-size:.82rem;letter-spacing:.18em}
+.endmark::before{content:"";display:block;width:60px;height:1px;background:var(--gold);
+  margin:0 auto 18px}
+
+@media (max-width:600px){
+  body{font-size:17.5px;line-height:2.0}
+  .wrap{padding:0 18px 110px}
+  .titlepage h1{font-size:2.9rem}
+  .line{grid-template-columns:1fr;gap:3px;margin-bottom:17px}
+  .line .spk{text-align:left;border-right:none;border-left:3px solid var(--rule);
+    padding:0 0 0 10px;margin:0 0 4px;line-height:1.6}
+}
+</style>
+</head>
+<body>
+<header class="titlepage">
+  <p class="kicker">Bodas de Sangre · 비극</p>
+  <h1>피<span class="drop">의</span> 결혼</h1>
+  <div class="dropicon">🩸</div>
+  <div class="ornament"></div>
+  <div class="meta">
+    <div>가르시아 로르카 작</div>
+    <div>김 정 옥 구성, 연출</div>
+    <div style="margin-top:10px;font-size:.86rem;opacity:.8">전 6장</div>
+  </div>
+</header>
+
+<nav class="toc"><a href="#scene-1">1장</a><a href="#scene-2">2장</a><a href="#scene-3">3장</a><a href="#scene-4">4장</a><a href="#scene-5">5장</a><a href="#scene-6">6장</a></nav>
+
+<div class="wrap">
+  <div class="cast"><span class="lab">등장</span>어머니 · 이웃여자 · 신부 · 아내 · 광대 · 옥분 · 사내 · 신랑 · 아버지 · 소리 · 달 · 거지 · 청년</div>
+  <section class="scene" id="scene-1">
+<h2 class="scene-head"><span class="scene-num">1장</span><span class="scene-label">1장</span></h2>
+<p class="stage">관객석으로 어머니와 이웃여자 등장, 이웃여자 흐느끼며 운다.</p>
+<div class="line c-0"><span class="spk">어머니</span><span class="say">울지 말아요.</span></div>
+<div class="line c-8"><span class="spk">이웃여자</span><span class="say">못 참겠어요.</span></div>
+<div class="line c-0"><span class="spk">어머니</span><span class="say">그만 두량두. <span class="inline-stage">(대문 앞에서)</span> 아무도 없니? 아들이 대답을 해야 할텐데. 그 아들은 이미 한아름의 시들은 꽃. 내 아들은 산 넘어 저 멀리 사라져 가는 목소리. <span class="inline-stage">(이웃 여자 운다.)</span> 그만 두지 못하겠소? 이 집에서 눈물을 흘리고 슬퍼하지 말아요. 당신이 흘리는 눈물은 다만 당신의 눈에서 흐르는 눈물. 그러나 내가 혼자 남게되면 그 때는 내 눈물이 쏟아지겠지--- 나의 발바닥에서, 나의 뿌리에서부터 피보다 진한 눈물이.</span></div>
+<div class="line c-8"><span class="spk">이웃여자</span><span class="say">우리 집에 갑시다. 여기 혼자 계시면 안돼요.</span></div>
+<div class="line c-0"><span class="spk">어머니</span><span class="say">아니, 여기 있어야 해요. 여기에 차분히. 다 죽어 버렸어. 그러니 한밤중에도 나는 잘 수 있어. 비수같은 칼을 두려워하지않고 잘 수 있어. 다른 어머니들은 비가 오면 아들 걱정으로 창가로 가지만 나는 가지 않아도 돼. 꿈 속에서 차가운 상아 빛깔의 비둘기를 만들어 보겠어요. 무덤에 서릿발 같이 흰 동백꽃을 물어다 줄 비둘기를. 무덤이라니! 무덤이 아니죠. 이 땅의 안식처죠. 꿈을 보살펴 주고 그 꿈을 하늘이 잠재워주는 잠자리 아, 허허 벌판, 땅과 나만이--- 나의 슬픔과 나만이--- 그리고, 나를 에워싼 저 하늘과 산과 들판, 그것 뿐이야---</span></div>
+<p class="stage">(신부 들어 온다.)</p>
+<div class="line c-8"><span class="spk">이웃여자</span><span class="say"><span class="inline-stage">(격분해서)</span> 어디를 감히 네가? 어디로 가겠다는 거냐.</span></div>
+<div class="line c-2"><span class="spk">신부</span><span class="say">여기에 온 거예요.</span></div>
+<div class="line c-0"><span class="spk">어머니</span><span class="say">거 누구지?</span></div>
+<div class="line c-8"><span class="spk">이웃여자</span><span class="say">누군지 모르겠어요?</span></div>
+<div class="line c-0"><span class="spk">어머니</span><span class="say">그러니까 누구냐고 묻는 거지, 알고 싶지 않으니까. 그래야 저 여 자 목에 내 이빨을 대지 않고 넘어갈 수 있어. 오, 독사! <span class="inline-stage">(분노에 떨며 신부에게 다가선다. 이웃여자에게)</span> 이 여자를 봐요. 여기에 이렇게 태연하게 서서 이 여자의 눈알을 후벼 파내지도 않고 있어. 나도 내 자신을 모르겠어. 내가 내 아들을 사랑하지 않았단말인가? 아들의 체면은 뭐가 돼? 어떻게 돼는거야 대체? 어떻게 돼는 거야? <span class="inline-stage">(신부를 때린다. 신부 쓰러진다.)</span></span></div>
+<div class="line c-8"><span class="spk">이웃여자</span><span class="say">제발, 이러지 말아요. <span class="inline-stage">(둘을 떼어 놓는다.)</span></span></div>
+<div class="line c-2"><span class="spk">신부</span><span class="say"><span class="inline-stage">(이웃여자에게)</span> 내버려 두세요. 얻어 맞게. 전 죽여 달라고 여기 왔어요. 죽어 없어지기 위해서. <span class="inline-stage">(어머니에게)</span> 그러지만 그 손이 아니라 낫으로, 칼쿠리로 힘껏 제 뼈가 으깨지도록 쳐 주세요. 죽여 주세요. 제 피가 깨긋하다는 걸 알리고 싶어요. 미쳤다고 하실지 모르지만. 어느 남자도 제 하얀가슴에 얼굴을 비춰 본적은 없었어요.</span></div>
+<div class="line c-0"><span class="spk">어머니</span><span class="say">닥쳐라. 닥쳐! 그 따위가 나에게 무슨 상관이야!</span></div>
+<div class="line c-2"><span class="spk">신부</span><span class="say">다른 남자하고 도망쳤으니까요. 난 도망쳤어요. <span class="inline-stage">(괴로운 듯이)</span> 누구라도 도망쳤을꺼예요. 여자가 정욕에 사로잡혀 안팍으로 상처투성이었어요. 아드님은 작은 시냇물이었어요. 그 시냇물에서 아이들, 땅, 건강을 바랬어요. 또 한사람은 어두운 강. 나뭇가지와 풀 속으로 그늘진 칙칙한 강. 그 강물의 속삭이는 노래와 넘치는 물살의 제 살결에 속속들이 부딪혀 왔어요. 나는 가려고 하지 않았어요. 아시겠어요. 죽을 힘을 다 했어요. 아드님은 제 운명이었고 전 그 운명을 배반하고 싶지 않았어요. 그런데 또 다른 사람이 절 끌어들였어요. 마치 바다의 세찬 물살처럼 수백마리의 새떼가 몰려와서 내길을 가로지르고 제 상처에 하얀 서리를 남겼어요. 불길에 달아 초라하게 시들어진 이 가련한 여자의 상체에---네, 전 피하려고 했어요---</span></div>
+<div class="line c-0"><span class="spk">어머니</span><span class="say">저 여자에겐 죄가 없다. 내게도 없다! 그렇다면 누구 죄란 말인가? 남이 덥혀논 잠자리를 가로채려는 비굴한 여자의 탓이 아니 아니라면?</span></div>
+<div class="line c-2"><span class="spk">신부</span><span class="say">그만!그만! 저를 죽여주세요. 자, 여기! 보세요. 제목이 얼마나 부드러운가 마당에 피어있는 모란꽃을 꺽는 것보다 더 쉬울거예요. 그렇지만 전 깨끗해요. 그걸 어머님 앞에서 증명하고 싶어요. 무엇이든 하겠어요. 불을 피우고 우리 손을 불길에 넣읍시다. 어머니는 아들을 걸고 저는 제 육신을 걸고, 제가 먼저 손을 뽑지는 않겠어요.</span></div>
+<div class="line c-0"><span class="spk">어머니</span><span class="say">네 체면이 내게 무슨 상관이냐? 네가 죽든 살든 내게 무슨 상관이냐? 어떻게 되든 내게 무슨 상관이냐? 다정한 손길, 그 비는 죽은 사람의 얼굴을 적셔주니까</span></div>
+<div class="line c-2"><span class="spk">신부</span><span class="say">어머님과 같이 울게 해 주세요.</span></div>
+<div class="line c-0"><span class="spk">어머니</span><span class="say">울어라! 하지만 나가서 울어라</span></div>
+<p class="stage">(아내 등장)</p>
+<div class="line c-4"><span class="spk">아내</span><span class="say">그 이는 아름다운 장정이었어요. 이제는 한 덩어리 눈송이 산으로 들판으로 여자품으로 말을 타고 달렸어요. 이제는 밤의 어두운 이끼가 그의 이마를 덮어 씌우네.</span></div>
+<div class="line c-0"><span class="spk">어머니</span><span class="say">당신 어머니께 이 땅의 거울인 해바라기 꽃을!</span></div>
+<div class="line c-4"><span class="spk">아내</span><span class="say">아, 네 명의 사내들이 지친 어깨로 돌아오네.</span></div>
+<div class="line c-2"><span class="spk">신부</span><span class="say">아, 네 명의 사내들이 죽은 육신을 높이 쳐들고 오네.</span></div>
+<div class="line c-4"><span class="spk">아내</span><span class="say">아, 네 명의 사내들이 지친 어깨로 돌아오네!</span></div>
+<div class="line c-2"><span class="spk">신부</span><span class="say">아, 네 명의 사내들이 죽은 육신을 높이 쳐들고 오네!</span></div>
+<p class="stage">(시체를 든 사내들이 들어온다.)</p>
+<div class="line c-0"><span class="spk">어머니</span><span class="say">겨우 쥐어지는 작은 칼로 두 사내는 사랑을 위해 칼질을 했어. 놀란 육신을 꿰뚫고 멎은 어두운 소리의 뿌리가 외치는 곳.</span></div>
+<div class="line c-2"><span class="spk">신부</span><span class="say">네, 칼이었어요. 조그만 칼. 손바닥만한 칼로 두 사내는 움직임을 잃었어요. 입술이 누러게 식어 버렸어요.</span></div>
+<div class="line c-0"><span class="spk">어머니</span><span class="say">놀란 육신을 꿰뚫고 멎은 곳은 어두운 소리의 뿌리가 외치는 곳</span></div>
+<p class="stage">(어머니 울음을 터트리고 울부짖는다. 여인들 무릎을 꿇고 흐느낀다. 권마성 소리, 요령소리, 만장에 상여, 두 시체, 북의 순서로 등장한다. 상여 내려 놓는다. 시체에 천을 씌우고 모두 둘러 앉는다. 목탁소리와 함께 염불 시작된다. 염불이 끝나면 북소리가 천천히 나기 시작하고 원을 그리며 평토제가 시작된다.)</p>
+<p class="stage">어이어라 달공 / 엉겅퀴야 피어나라 / 어이어라 달공 / 피어나라 엉겅퀴야</p>
+<p class="stage">/ 어이어라 달공 / 이제가면 언제오나 오만날이 막연구나 / 어이어라 달공</p>
+<p class="stage">못가겠네 못가겠네 서러워서 못가겠네 / 어이어라 달공 허무하다 인간세상</p>
+<p class="stage">이제가면 그만일세 / 어이어라 달공 간다 간다 나는 간다 북망산으로</p>
+<p class="stage">나는간다 / 어이어라 달공 오는비도 다정해라 죽은 육신 적셔주네 / 어이어라</p>
+<p class="stage">달공 북소리 크게 한번 둥둥둥둥둥--- 북소리 크게 한 번</p>
+<div class="line gwangdae"><span class="spk">광대들</span><span class="say">상처가 엉키고 풀잎이 덮였네 밤을 세우고 아침에 잠들었네. 빨간댕기 무엇을 노래하리. 댕기가 돌에 엉켜서 감겼다. 하지만 보내주마 푸른 산으로 돌고 돌아서 떠나가렴 칼이 네 목숨을 노린다. 빨간 댕기 무엇을 노래하리. 여인은 입을 다물었다. 붉게 물들은 신랑. 잔잔해진 물가에 두 사람은 쓰러져 돌아 오지 않는다. 빨간 댕기 무엇을 노래하리.</span></div>
+<p class="stage">(광대들 무대 양쪽으로 가서 자리 잡는다)</p>
+</section>
+<section class="scene" id="scene-2">
+<h2 class="scene-head"><span class="scene-num">2장</span><span class="scene-label">2장</span></h2>
+<p class="stage">(신부와 옥분, 결혼식 준비를 하고 있다.)</p>
+<div class="line c-6"><span class="spk">옥분</span><span class="say">여기서 머리를 마저 빗겨 드릴께요.</span></div>
+<div class="line c-2"><span class="spk">신부</span><span class="say">안은 너무 더워---</span></div>
+<div class="line c-6"><span class="spk">옥분</span><span class="say">여기라도 나와야 바람이 있지--- 이렇게 더우면 나무도 말라 죽겠어요.</span></div>
+<div class="line c-2"><span class="spk">신부</span><span class="say">내 어머니 고향은 나무가 우거진 곳. 열매가 열리는 아름다운 고장이었지---</span></div>
+<div class="line c-6"><span class="spk">옥분</span><span class="say">그래서 늘 밝고 싱싱하셨어!</span></div>
+<div class="line c-2"><span class="spk">신부</span><span class="say">여기 오셔서 시들어 지셨어---</span></div>
+<div class="line c-6"><span class="spk">옥분</span><span class="say">운명인걸 어떠케해요.</span></div>
+<div class="line c-2"><span class="spk">신부</span><span class="say">그래, 묻혀 살고 말았어. 우리들 처럼. 아야! 너무 잡아당기지 말어.</span></div>
+<div class="line c-6"><span class="spk">옥분</span><span class="say">머리를 예쁘게 족 질려고--- 아씨는 정말 예뻐요. 행복하시겠어요. 곧 서방님을 안고 남자의 무게를 몸으로 느낄테니까요.</span></div>
+<div class="line c-2"><span class="spk">신부</span><span class="say">그만둬.</span></div>
+<div class="line c-6"><span class="spk">옥분</span><span class="say">여기에 족두리를 쓰면 정말 멋있겠어요---<span class="inline-stage">(신부 시무룩하다.)</span> 왜그러세요? 지금 슬퍼할 때에요? 족두리를 이리 줘요. <span class="inline-stage">(신부 족두리를 떨어뜨린다.)</span> 벌 받아요. 족두리를 그렇게 함부로. 아씨 시집가는게 싫어요? 말해봐요. 지금이라도 관둘 수 있으니까.</span></div>
+<div class="line c-2"><span class="spk">신부</span><span class="say">폭풍우를 몰고 올 시커먼 구름. 가슴을 에이는 듯한 싸늘한 바람. 그런 걸 느껴보지 못한 사람이 있을까?</span></div>
+<div class="line c-6"><span class="spk">옥분</span><span class="say">신랑 될 총각이 마음에 들어요?</span></div>
+<div class="line c-2"><span class="spk">신부</span><span class="say">그럼.</span></div>
+<div class="line c-6"><span class="spk">옥분</span><span class="say">그러셔야죠, 물론.</span></div>
+<div class="line c-2"><span class="spk">신부</span><span class="say">하지만 그렇게 되기까지는 ---힘들었어.</span></div>
+<div class="line c-6"><span class="spk">옥분</span><span class="say">이겨내야죠.</span></div>
+<div class="line c-2"><span class="spk">신부</span><span class="say">결심은 되어있어. 마음에 다짐을 한거야.</span></div>
+<div class="line c-6"><span class="spk">옥분</span><span class="say">족두리를 씌워드릴께요.</span></div>
+<p class="stage">(노래) 새색시야 잠에서 깨어나라</p>
+<p class="stage">오늘은 너의 혼인 잔칫날</p>
+<p class="stage">온 세상 강물에 찬란한 족두리를 띄워 보내자.</p>
+<p class="stage">깨어나라! 월계수 꽃을 높이 들고</p>
+<p class="stage">(사내 들어 온다.)</p>
+<div class="line c-2"><span class="spk">신부</span><span class="say">뭣하러 왔어요?</span></div>
+<div class="line c-3"><span class="spk">사내</span><span class="say">혼인식에 참석하려고.</span></div>
+<div class="line c-2"><span class="spk">신부</span><span class="say">내가 당신 혼인식에 참석했던 것처럼!</span></div>
+<div class="line c-3"><span class="spk">사내</span><span class="say">나는 죽는 것은 무섭지않지만 사람들의 멸시를 받는 것은 참을수없어!</span></div>
+<div class="line c-2"><span class="spk">신부</span><span class="say">거짓말.</span></div>
+<div class="line c-3"><span class="spk">사내</span><span class="say">얘기하기도 싫어. 내 몸에서 뜨거운 피가 끓고있어. 내가 한번 외치면 온 누리, 모든 산이 받아 외칠거야.</span></div>
+<div class="line c-2"><span class="spk">신부</span><span class="say">내가 소리치면 더 클거에요.</span></div>
+<div class="line c-6"><span class="spk">옥분</span><span class="say">둘이서 그런 식으로 말하는 것은 이제 그만둬야해요. <span class="inline-stage">(신부에게)</span> 지나간 일들은 다 잊으세요.</span></div>
+<div class="line c-2"><span class="spk">신부</span><span class="say">네 말이 맞다. 당신하고 말을 한것부터가 잘못이었어요. 하지만 내 혼례에 대해서 뭔가 물어 보는 건 참을 수 없어요. 나가세요! 밖에서 부인이나 기다리시죠.</span></div>
+<div class="line c-3"><span class="spk">사내</span><span class="say">얘기도 해선 안된다는 거요?</span></div>
+<div class="line c-6"><span class="spk">옥분</span><span class="say">안돼요, 안돼고 말고요.</span></div>
+<div class="line c-3"><span class="spk">사내</span><span class="say">결혼한후로 나는 매일 밤낮으로 생각해 보았오. 도대체 누구의 잘못이었나하고. 오늘 이렇게 생각하면 내일 또 다른 생각이 튀어나오고. 잘못은 언제나 잘못으로 남기 마련이야.</span></div>
+<div class="line c-2"><span class="spk">신부</span><span class="say">말을 잘 타는 남자는 아는 것도 많겠죠. 말을 잡아타고 이렇게 외딴 벽지에 묻혀사는 여자집까지 달려 올 수 있고, 그렇지만 나도 자존심은 있어요. 바로 그 자존심 때문에 결혼하는거예요. 남편에게 모든 것을 맡기고 나를 꼭 가두고 살 거예요. 내 마음의 열쇠를 맡겨버리고 세상 누구보다도 남편을 사랑하며 살겠어요.</span></div>
+<div class="line c-3"><span class="spk">사내</span><span class="say">자존심 같은게 뭘 어떻게 한다구! <span class="inline-stage">(신부에게 가까이 간다.)</span></span></div>
+<div class="line c-2"><span class="spk">신부</span><span class="say">가까이 오지 말아요.</span></div>
+<div class="line c-3"><span class="spk">사내</span><span class="say">활활 타오르는데 가만히 있으라니, 이보다 더 큰 벌이 어디 있오? 자존심이 어떤 도움을 준단 말이오? 당신을 만나지 않고 허구한 밤을 당신 없이 지내는 것이? 아무런 도움도 되지 않았어. 마음의 불길을 더욱 타오르게 했을 뿐. 세월이 흐르면 편해진다. 벽이 감춰 줄거라고 생각하지만 그건 다 거짓말. 거짓말이요. 한번 깊이 꽂히면 쉽게 뽑을 수는 없오.</span></div>
+<div class="line c-2"><span class="spk">신부</span><span class="say"><span class="inline-stage">(떨면서)</span> 제발 그만. 당신 목소리만 들어도 전 어쩔 줄을 모르겠어요. 철쭉꽃 동동주에 취하면 이렇게 될까요? 제발, 그만.</span></div>
+<div class="line c-6"><span class="spk">옥분</span><span class="say"><span class="inline-stage">(사내를 밀어내며)</span> 여기서 빨리 나가요. 빨리!</span></div>
+<div class="line c-3"><span class="spk">사내</span><span class="say">이것이 마지막이야 당신과 얘기를 하는 것도. 두려워 할것 없어.</span></div>
+<div class="line gwangdae"><span class="spk">광대들</span><span class="say">새색시야, 잠에서 깨어나라. 오늘은 너의 혼인 잔칫날 월계수 가지를 높이들고 새색시야. 하얀 새색시야. 오늘은 숫처녀 내일은 풋각시 일어나라 검은 머리칼의 여인. 서늘한 아침이슬이 영롱하다.</span></div>
+<p class="stage">(사내 나간다. 신랑 들어온다. 신랑과 신부 말없이 쳐다본다.)</p>
+</section>
+<section class="scene" id="scene-3">
+<h2 class="scene-head"><span class="scene-num">3장</span><span class="scene-label">3장</span></h2>
+<p class="stage">광대들 남녀의 사랑, 결혼식 등을 우화적으로 다룬 촌극을 전개한다.</p>
+<p class="stage">이를테면 함장이패 등장, 함을 팔며 세태를 풍자하고 거지들은 혼인잔치가</p>
+<p class="stage">있는 집에와서 행패를 부리고 축하도 해 준다. 또 혼인 잔칫날 가짜신랑과</p>
+<p class="stage">가짜신부를 꾸며 신랑 다루는 촌극도 펼쳐진다. 그러다가 어느듯 장면은 진짜</p>
+<p class="stage">연극 속의 혼인식으로 진행된다. 결혼식은 시각적으로 표현되면 된다.</p>
+<p class="stage">결혼식이 끝나고 모두 인사를 하고 헤어진다.</p>
+</section>
+<section class="scene" id="scene-4">
+<h2 class="scene-head"><span class="scene-num">4장</span><span class="scene-label">4장</span></h2>
+<p class="stage">혼인식이 끝났다. 신부 먼 하늘을 쳐다보며 서 있다. 신랑 들어 와서</p>
+<p class="stage">신부를 뒤에서 껴 안는다.</p>
+<div class="line c-2"><span class="spk">신부</span><span class="say"><span class="inline-stage">(놀라서)</span> 노세요.</span></div>
+<div class="line c-1"><span class="spk">신랑</span><span class="say">왜 무서워, 내가?</span></div>
+<div class="line c-2"><span class="spk">신부</span><span class="say">당신이었군요.</span></div>
+<div class="line c-1"><span class="spk">신랑</span><span class="say">내가 아니면 누가 당신을 ? <span class="inline-stage">(다시 안으려 한다.)</span></span></div>
+<div class="line c-2"><span class="spk">신부</span><span class="say">노세요.</span></div>
+<div class="line c-1"><span class="spk">신랑</span><span class="say">왜?</span></div>
+<div class="line c-2"><span class="spk">신부</span><span class="say">사람들이 보니까.</span></div>
+<div class="line c-1"><span class="spk">신랑</span><span class="say">보면 어때? 혼인식도 끝났는데.</span></div>
+<div class="line c-2"><span class="spk">신부</span><span class="say">네---하지만 --- 나중에.</span></div>
+<div class="line c-1"><span class="spk">신랑</span><span class="say">왜 그러지? 겁 먹은 사람처럼.</span></div>
+<div class="line c-2"><span class="spk">신부</span><span class="say">아무렇지않아요. 여기 계세요.</span></div>
+<p class="stage">(아내 들어온다.)</p>
+<div class="line c-4"><span class="spk">아내</span><span class="say">방해해서 미안하지만---</span></div>
+<div class="line c-1"><span class="spk">신랑</span><span class="say">왜 그러시죠?</span></div>
+<div class="line c-4"><span class="spk">아내</span><span class="say">우리집 사람 여기 안왔어요?</span></div>
+<div class="line c-1"><span class="spk">신랑</span><span class="say">안 왔는데요.</span></div>
+<div class="line c-4"><span class="spk">아내</span><span class="say">어디 갔을까? 말도 없이---</span></div>
+<p class="stage">(아내 불안한 표정으로 나가고 옥분 등장)</p>
+<div class="line c-6"><span class="spk">옥분</span><span class="say">기분이 어때요? 모두들 축하해주는데.</span></div>
+<div class="line c-1"><span class="spk">신랑</span><span class="say">이제 끝냈으면 좋겠군. 새색시가 좀 피로한가봐.</span></div>
+<div class="line c-6"><span class="spk">옥분</span><span class="say">그래 가지곤 안돼요. 아씨. 산골의 새색시는 더 억세고 강해야죠.</span></div>
+<p class="stage">(신랑에게) 서방님만이 아씨의 병을 고쳐 줄 수 있어요. 아씨는 서방님</p>
+<p class="stage">차지니까.</p>
+<div class="line c-1"><span class="spk">신랑</span><span class="say">그렇지 춤이라도 출까? 기분을 내서</span></div>
+<div class="line c-2"><span class="spk">신부</span><span class="say">싫어요. 좀 쉬어야겠어요.</span></div>
+<div class="line c-1"><span class="spk">신랑</span><span class="say">나하고 같이 가지.</span></div>
+<div class="line c-2"><span class="spk">신부</span><span class="say">그러면 안돼요. 남들이 뭐라고 하겠어요? 저 혼자만 쉬게 해 주세요.</span></div>
+<div class="line c-1"><span class="spk">신랑</span><span class="say">좋도록해요. 밤에는 그렇게 안될걸.</span></div>
+<div class="line c-2"><span class="spk">신부</span><span class="say"><span class="inline-stage">(나가며)</span> 밤에는 좋아질거예요.</span></div>
+<div class="line c-1"><span class="spk">신랑</span><span class="say">잘 쉬어요.</span></div>
+<p class="stage">(어머니 등장)</p>
+<div class="line c-0"><span class="spk">어머니</span><span class="say">여기 있었구나.</span></div>
+<div class="line c-1"><span class="spk">신랑</span><span class="say">어디 계셨어요.</span></div>
+<div class="line c-0"><span class="spk">어머니</span><span class="say">저 잔치판 속에. 어때 기쁘냐?</span></div>
+<div class="line c-1"><span class="spk">신랑</span><span class="say">네.</span></div>
+<div class="line c-0"><span class="spk">어머니</span><span class="say">새 색시는?</span></div>
+<div class="line c-1"><span class="spk">신랑</span><span class="say">좀 쉬러 갔어요. 새색시에겐 고된 날이예요.</span></div>
+<div class="line c-0"><span class="spk">어머니</span><span class="say">고된 날이라고? 제일 좋은 날이지. 난 그 날처럼 행복했던 때는 없었다. 신천지가 떠오르는 듯 했어. 새 땅이 밝아오고 새 나무들이 자라고. 아내하고 잘 지내야 한다. 아내가 어리석은 짓을 하거나 뾰루퉁해있을 땐 귀여워 해 주되 좀 아프게 다스려라. 힘을 주어 끌어 안는다든지, 사내답게 나무랜다든지---</span></div>
+<div class="line c-1"><span class="spk">신랑</span><span class="say">알겠읍니다.</span></div>
+<div class="line c-0"><span class="spk">어머니</span><span class="say">네가 내곁을 떠나야 한다는 것을 생각하면 서운하기 이를데없구나.</span></div>
+<div class="line c-1"><span class="spk">신랑</span><span class="say">우리와 함께 사시면 되잖아요.</span></div>
+<div class="line c-0"><span class="spk">어머니</span><span class="say">그럴 순 없어. 네 아버지와 형님만 그 곳에 남겨 둘 순 없다. 난 매일 묘지에 가 봐야 해.</span></div>
+<div class="line c-1"><span class="spk">신랑</span><span class="say">이젠 잊으세요. 3년전 일이에요.</span></div>
+<div class="line c-0"><span class="spk">어머니</span><span class="say">3년--- 그래. 네 처와 어머니는 어떤 사람들이었을까?</span></div>
+<div class="line c-1"><span class="spk">신랑</span><span class="say">이제 와서 그게 무슨 상관이에요? 여자들이란 결혼할 남자를 골라야 하니까 더러 남자를 사귀었겠죠.</span></div>
+<div class="line c-0"><span class="spk">어머니</span><span class="say">난 네 아버지 밖에 사귀지 않았다. 여자는 한 남자만 알면 되는거야.</span></div>
+<div class="line c-5"><span class="spk">아버지</span><span class="say"><span class="inline-stage">(들어오며)</span> 신부는 어디 갔오?</span></div>
+<div class="line c-1"><span class="spk">신랑</span><span class="say">방에 들어 갔읍니다. <span class="inline-stage">(아버지 나간다.)</span></span></div>
+<div class="line c-0"><span class="spk">어머니</span><span class="say">엄하게 하되 곧 부드럽게 풀어주어야해. 그러면 남자다운 너한테 매력이 더해진단다. 네 아버지한테 배운거야. 아버지가 안계시니 내가 대신 가르쳐주는거다.</span></div>
+<div class="line c-1"><span class="spk">신랑</span><span class="say">잘 알겠읍니다.</span></div>
+<div class="line c-5"><span class="spk">아버지</span><span class="say"><span class="inline-stage">(들어오며)</span> 방에 없는데.</span></div>
+<div class="line c-1"><span class="spk">신랑</span><span class="say">네? 없어요?</span></div>
+<div class="line c-5"><span class="spk">아버지</span><span class="say">아래채에 갔는지도 모르겠군.</span></div>
+<div class="line c-1"><span class="spk">신랑</span><span class="say">제가 가 보겠읍니다.</span></div>
+<div class="line c-6"><span class="spk">옥분</span><span class="say">아씨가 없어졌어요. 어딜 갔을까요.</span></div>
+<div class="line c-1"><span class="spk">신랑</span><span class="say">아래채에도 없는데요.</span></div>
+<div class="line c-0"><span class="spk">어머니</span><span class="say"><span class="inline-stage">(불안해하며)</span> 없어?</span></div>
+<div class="line c-5"><span class="spk">아버지</span><span class="say">뒷채에도?</span></div>
+<div class="line c-6"><span class="spk">옥분</span><span class="say">가 봤어요.</span></div>
+<div class="line c-5"><span class="spk">아버지</span><span class="say">사람들이 많으니까 잘 찾아 봐라.</span></div>
+<div class="line c-6"><span class="spk">옥분</span><span class="say">다 찾아 봤어요.</span></div>
+<div class="line c-5"><span class="spk">아버지</span><span class="say">그럼 어딜 갔단 말이냐.</span></div>
+<div class="line c-1"><span class="spk">신랑</span><span class="say"><span class="inline-stage">(들어오며)</span> 없어요. 아무데도 없어요.</span></div>
+<div class="line c-0"><span class="spk">어머니</span><span class="say"><span class="inline-stage">(아버지에게)</span> 어떻게 된거죠? 따님은 어딜 갔어요?</span></div>
+<div class="line c-4"><span class="spk">아내</span><span class="say"><span class="inline-stage">(들어오며)</span> 도망갔어요. 둘이서 도망쳤어요. 말을 타고 둘이서 껴안고 흐르는 별처럼 사라졌어요.</span></div>
+<div class="line c-5"><span class="spk">아버지</span><span class="say">그럴리가! 내딸이 --- 아니야 그럴리가!</span></div>
+<div class="line c-0"><span class="spk">어머니</span><span class="say">댁의 딸이 아니라면 누가--- 그게 내 며느리가 되다니---</span></div>
+<div class="line c-1"><span class="spk">신랑</span><span class="say">쫓아가자! 말이 없을까 말?</span></div>
+<div class="line c-0"><span class="spk">어머니</span><span class="say">말을 가져와요. 뭐든지 줄께 내 눈알 내 혓바닥이라도!</span></div>
+<div class="line c-11"><span class="spk">소리</span><span class="say">여기 말이 준비 되있오.</span></div>
+<div class="line c-0"><span class="spk">어머니</span><span class="say"><span class="inline-stage">(아들에게)</span> 빨리 쫓아가라! <span class="inline-stage">(신랑 퇴장)</span> 아니야 가선 안돼! 그 놈들은 사람을 죽이는데는 선수야. 아니야 쫓아가라 쫓아가! 나도 뒤따라 갈테니.</span></div>
+<div class="line c-5"><span class="spk">아버지</span><span class="say">내 딸이 그럴리가. 그엔 물에 빠져 죽었을지도 몰라.</span></div>
+<div class="line c-0"><span class="spk">어머니</span><span class="say">물에 빠져 죽는 건 몸가짐이 착한 처녀지. 깨끗한 처녀 그 앤 그렇지가 못해요. 그런데 그게 내 아들의 아내가 되었으니--- 적과 우리편. 이젠 적과 우리편으로 갈라섰어요. 두 패로 나눠서 우리집 사람들은 우리끼리, 당신네 사람들은 당신들 끼리! 빨리! 빨리 쫓아가요!</span></div>
+</section>
+<section class="scene" id="scene-5">
+<h2 class="scene-head"><span class="scene-num">5장</span><span class="scene-label">5장</span></h2>
+<p class="stage">암전된 상태에서 광대들 북을 친다. 북소리 (사이) 북소리 크게 한번 치면</p>
+<p class="stage">조명 들어온다. 광대들 탈을 쓰고 있다. 그들은 다시 북을 친다. (사이)</p>
+<p class="stage">북소리 다시 한번 크게 치면 광대들 탈을 벗는다.</p>
+<p class="stage">(잠시 사이)</p>
+<div class="line gwangdae"><span class="spk">광대1</span><span class="say">그저 바라만 보고 있지</span></div>
+<div class="line gwangdae"><span class="spk">광대들</span><span class="say">그저 바라만 보고 있지</span></div>
+<p class="stage">(광대들 탈을 허리띠에 맨다.)</p>
+<div class="line gwangdae"><span class="spk">광대2</span><span class="say">그저 눈치만 보고 있지</span></div>
+<div class="line gwangdae"><span class="spk">광대들</span><span class="say">그저 눈치만 보고 있지</span></div>
+<div class="line gwangdae"><span class="spk">광대3</span><span class="say">어떻게 하나</span></div>
+<div class="line gwangdae"><span class="spk">광대들</span><span class="say">어떻게 하나</span></div>
+<p class="stage">(갑자기 광대 4 외친다.)</p>
+<div class="line gwangdae"><span class="spk">광대4</span><span class="say">동족상쟁이다. 마침내 우리는 칼을 뽑아 들었다. 동족상쟁이다.</span></div>
+<p class="stage">(모두들 어리둥절한다.)</p>
+<div class="line gwangdae"><span class="spk">광대5</span><span class="say">한 친족이 두 패로 갈라서고, 마침내 세계가 두 패로 갈라서고---</span></div>
+<div class="line gwangdae"><span class="spk">광대6</span><span class="say">껍데기는 가라!</span></div>
+<div class="line gwangdae"><span class="spk">광대7</span><span class="say">알맹이만 남고 껍데기는 가라!</span></div>
+<div class="line gwangdae"><span class="spk">광대8</span><span class="say">모든 쇠붙이는 가라!</span></div>
+<div class="line gwangdae"><span class="spk">광대9</span><span class="say">잘가세요 잘가세요. 그 한마디였었네. 잘있어요 잘있어요. 인사만 했었네.</span></div>
+<p class="stage">(광대들 광대 9의 노래에 장단을 맞추며 무대 앞쪽으로 나오며 관객과 마주선다. 광대들 잠시 무거운 침묵, 부동의 자세이다.)</p>
+<div class="line gwangdae"><span class="spk">광대1</span><span class="say">간다.</span></div>
+<div class="line gwangdae"><span class="spk">광대2</span><span class="say">온다.</span></div>
+<div class="line gwangdae"><span class="spk">광대1</span><span class="say">가는데.</span></div>
+<div class="line gwangdae"><span class="spk">광대2</span><span class="say">오는데.</span></div>
+<div class="line gwangdae"><span class="spk">광대3</span><span class="say">내 버려 둬.</span></div>
+<div class="line gwangdae"><span class="spk">광대4</span><span class="say"><span class="inline-stage">(아래를 보며)</span> 올라간다.</span></div>
+<div class="line gwangdae"><span class="spk">광대5</span><span class="say"><span class="inline-stage">(위를 보며)</span> 내려간다.</span></div>
+<div class="line gwangdae"><span class="spk">광대4</span><span class="say">올라가는데.</span></div>
+<div class="line gwangdae"><span class="spk">광대5</span><span class="say">내려가는데.</span></div>
+<div class="line gwangdae"><span class="spk">광대6</span><span class="say">내 버려 둬.</span></div>
+<div class="line gwangdae"><span class="spk">광대7</span><span class="say">앉아있다.</span></div>
+<div class="line gwangdae"><span class="spk">광대8</span><span class="say">서 있다.</span></div>
+<div class="line gwangdae"><span class="spk">광대7</span><span class="say">앉아 있는데.</span></div>
+<div class="line gwangdae"><span class="spk">광대8</span><span class="say">서 있는데.</span></div>
+<div class="line gwangdae"><span class="spk">광대9</span><span class="say">내 버려 둬. 그러자 한 광대 노래한다. &quot;아서라 세상사 쓸 것 없다&quot; 광대들 흩어지며 모두들 외치듯 노래한다. &quot;아서라 세상사 쓸 것 없다&quot;</span></div>
+<div class="line gwangdae"><span class="spk">광대1</span><span class="say">&quot;따 따따따 따따따 따다따다따따 따따따 으따따 으따따 으따따&quot;</span></div>
+<div class="line gwangdae"><span class="spk">광대2</span><span class="say">그 것은 조각난 지도</span></div>
+<div class="line gwangdae"><span class="spk">광대3</span><span class="say">여기서 부터 저기까지는 아무도 없다.</span></div>
+<div class="line gwangdae"><span class="spk">광대4</span><span class="say">너 가시 울타리 가시 돋힌 장미여.</span></div>
+<div class="line gwangdae"><span class="spk">광대5</span><span class="say">철망 아래 들국화 찬바람에 흔들린다.</span></div>
+<div class="line gwangdae"><span class="spk">광대6</span><span class="say">분단된 ---</span></div>
+<div class="line gwangdae"><span class="spk">광대7</span><span class="say">분단된 ---</span></div>
+<div class="line gwangdae"><span class="spk">광대8</span><span class="say">분단된--- 뭣이드라?</span></div>
+<div class="line gwangdae"><span class="spk">광대9</span><span class="say">조국!</span></div>
+<div class="line gwangdae"><span class="spk">광대10</span><span class="say">가슴!</span></div>
+<div class="line gwangdae"><span class="spk">광대11</span><span class="say">집어치워! 그들은 무섭게 대립한다. 그리고는 서로 경계하며 다음 장면의 정해진 자리에 옮겨간다.</span></div>
+</section>
+<section class="scene" id="scene-6">
+<h2 class="scene-head"><span class="scene-num">6장</span><span class="scene-label">6장</span></h2>
+<p class="stage">(숲 속, 밤이다.)</p>
+<div class="line gwangdae"><span class="spk">광대1</span><span class="say">두 사람을 찾아 냈을까?</span></div>
+<div class="line gwangdae"><span class="spk">광대2</span><span class="say">아직, 그렇지만 샅샅이 뒤져서 꼭 찾아내고 말걸. 붙잡히고 말거야.</span></div>
+<div class="line gwangdae"><span class="spk">광대3</span><span class="say">쉿, 이 쪽으로 오나봐.</span></div>
+<div class="line gwangdae"><span class="spk">광대4</span><span class="say">달이 뜨면 찾아 내고 말걸.</span></div>
+<div class="line gwangdae"><span class="spk">광대5</span><span class="say">도망간 사람은 도망가게 해 줘야해.</span></div>
+<div class="line gwangdae"><span class="spk">광대6</span><span class="say">넓은 세상인데 둘이 숨어서 못 살라구.</span></div>
+<div class="line gwangdae"><span class="spk">광대7</span><span class="say">하지만 기어이 찾아내서 죽이고 말거야.</span></div>
+<div class="line gwangdae"><span class="spk">광대8</span><span class="say">정든 사람끼리 달아나는데 뭐가 잘못이야.</span></div>
+<div class="line gwangdae"><span class="spk">광대5</span><span class="say">마음을 속이고 살아보려고 했지만 결국 피가 더 강했어.</span></div>
+<div class="line gwangdae"><span class="spk">광대4</span><span class="say">핏줄이 끌리는 곳에 가기 마련이야.</span></div>
+<div class="line gwangdae"><span class="spk">광대3</span><span class="say">그러나 햇빛을 본 피는 땅덩이에 빨리고 말아.</span></div>
+<div class="line gwangdae"><span class="spk">광대7</span><span class="say">그래서 피를 흘리고 죽는 편이 피를 썩히며 사는것보다 낫지.</span></div>
+<div class="line gwangdae"><span class="spk">광대6</span><span class="say">구름이 끼었어. 달은 뜨지 않을지도 몰라.</span></div>
+<div class="line gwangdae"><span class="spk">광대1</span><span class="say">달이 뜨던 안 뜨던 그들은 둘을 찾아내고 말걸.</span></div>
+<div class="line gwangdae"><span class="spk">광대2</span><span class="say">광기를 내뿜는 별처럼 잿빛의 얼굴을 하고 쫓아간 그 사내.</span></div>
+<div class="line gwangdae"><span class="spk">광대1</span><span class="say">그들은 가문의 운명을 걸고 쫓아 가는것 같았어.</span></div>
+<div class="line gwangdae"><span class="spk">광대7</span><span class="say">구름 사이로 달이 얼굴을 내밀어. 오 달이여!</span></div>
+<div class="line gwangdae"><span class="spk">광대들</span><span class="say">솟아오르는 달이여! 외로운 달이여! 새색시 얼굴에 은가루를 뿌려라! 오, 잔인한 달이여! 둘의 사랑을 위해 어두운 그늘을 남겨다오! 오! 슬픈 달이여. 둘의 사랑을 위해 칙칙한 나무그늘을 남겨다오.</span></div>
+<p class="stage">(달 등장)</p>
+<div class="line c-9"><span class="spk">달</span><span class="say">나는 강 위의 백조. 나뭇잎사귀에 번쩍이는 새벽빛처럼 아련한 나는 천의 흐르는 강을 비춘다. 아무도 달아나지 못한다. 골짜기 덩굴 밑에 누가 숨어 있나? 흐느껴 우는것은 누구냐? 나를 비친 천의 강물은 나를 차가운 물살에 젖게했다. 그리나 오늘 밤에는 내 뺨에도 붉은 피가 물들것 같다. 바람의 센 발굽을 움켜쥔 갈대 밭에도 붉은 피가 뿌려질 것 같다. 그늘을 없애야지. 그림자를 쫓아야지. 칙칙한 나뭇가지 사이에도 아련한 빛이 속삭일거다. 그래야 오늘밤 차거운 내뺨에도 뜨거운 붉은 피가 물들 것이다. 바람의 센 발굽을 움켜쥔 갈대 밭에도 붉은 피가 뿌려질 것이다. 숨는 자는 누구냐 당장 나와라! 도망가게 내 버려 두지는 않을 것이다. 천의 강물, 그 물줄기를 나는 훤히 밝힌다.</span></div>
+<p class="stage">(달 퇴장, 거지 여인 등장)</p>
+<div class="line c-7"><span class="spk">거지</span><span class="say">여길 도망치진 못한다. 강물이 속삭이고, 속삭이는 나무가지가 너희들 도망가는 길을 소리쳐 외칠거다. 여기서 일이 벌어 지겠지. 나는 지쳤다. 관도 수의도 다 준비되었다. 한마리 새도 울지말아라. 산들바람은 둘의 신음소리를 치마폭에 싸서 그대로 검은 나뭇가지를 넘어서 가라. 아니면 부드러운 진흙속에 묻어주어라. 오, 달이여! 달이여!</span></div>
+<div class="line c-9"><span class="spk">달</span><span class="say">그들이 오고 있다. 한 패는 골짜기 사이로 또 한 패는 강물을 따라. 작은 자갈까지 환하게 밝히자.</span></div>
+<div class="line c-7"><span class="spk">거지</span><span class="say">바람이 분다. 칼날을 세우고 바람이 분다. 저고리와 조끼를 비추어라. 환하게. 칼날이 제대로 꽂힐 수 있게. 강을 건너게 해서는 안된다.</span></div>
+<div class="line c-9"><span class="spk">달</span><span class="say">저기 온다. <span class="inline-stage">(달 퇴장, 거지 한쪽으로 앉는다.)</span></span></div>
+<p class="stage">(신랑, 청년 등장)</p>
+<div class="line c-1"><span class="spk">신랑</span><span class="say">이 쪽으로 가자!</span></div>
+<div class="line c-10"><span class="spk">청년</span><span class="say">못 찾겠다. 찾을 수 없어.</span></div>
+<div class="line c-1"><span class="spk">신랑</span><span class="say"><span class="inline-stage">(화를 내며)</span> 찾는다. 찾고 말겠다!</span></div>
+<div class="line c-10"><span class="spk">청년</span><span class="say">다른 길로 가버린 것 같은데.</span></div>
+<div class="line c-1"><span class="spk">신랑</span><span class="say">그럴리없어. 조금전에 나는 달리는 말발굽소리를 들었어.</span></div>
+<div class="line c-10"><span class="spk">청년</span><span class="say">다른 말이었는지도 몰라.</span></div>
+<div class="line c-1"><span class="spk">신랑</span><span class="say">이봐, 이 세상에 무수히 많은 말들이 있지만 내겐 단 한마리의 말뿐이다. 그 말의 소리를 나는 들었어. 그걸 너는 몰라? 따라오려면 잠자코 따라와.</span></div>
+<div class="line c-10"><span class="spk">청년</span><span class="say">나는 다만---</span></div>
+<div class="line c-1"><span class="spk">신랑</span><span class="say">닥쳐! 꼭 여기서 만나게 될거다. 이 팔을 봐! 이건 내 팔이 아니다. 형의 팔, 아버지의 팔, 우리집 일가의 죽어간 사람 전부의 팔이다. 그래서 이 팔에는 억센 힘이 있어. 아무리 큰 나무라도 뿌리채 뽑을 수 있어 온 몸에 온 가문의 분함이 끌어 올라 숨을 제대로 쉴 수가 없다.</span></div>
+<div class="line c-7"><span class="spk">거지</span><span class="say">아아이---</span></div>
+<div class="line c-10"><span class="spk">청년</span><span class="say">들었나?</span></div>
+<div class="line c-1"><span class="spk">신랑</span><span class="say">그 쪽으로 돌아 봐. <span class="inline-stage">(청년 나간다.)</span></span></div>
+<p class="stage">(신랑 거지와 부딪힌다.)</p>
+<div class="line c-7"><span class="spk">거지</span><span class="say">아아이---</span></div>
+<div class="line c-1"><span class="spk">신랑</span><span class="say">뭐냐?</span></div>
+<div class="line c-7"><span class="spk">거지</span><span class="say">얼어 죽겠어.</span></div>
+<div class="line c-1"><span class="spk">신랑</span><span class="say">어디로 가는거요?</span></div>
+<div class="line c-7"><span class="spk">거지</span><span class="say">저 쪽으로 --- 멀리 ---</span></div>
+<div class="line c-1"><span class="spk">신랑</span><span class="say">어디서 왔어?</span></div>
+<div class="line c-7"><span class="spk">거지</span><span class="say">저쪽 먼 곳에서---</span></div>
+<div class="line c-1"><span class="spk">신랑</span><span class="say">말을 타고 도망가는 남녀를 못 봤오?</span></div>
+<div class="line c-7"><span class="spk">거지</span><span class="say"><span class="inline-stage">(일어서며)</span> 잠깐만, 잘 생기셨어. 하지만 잠이 들면 더 미남이겠는걸.</span></div>
+<div class="line c-1"><span class="spk">신랑</span><span class="say">내 말에 대답을 해요. 봤오?</span></div>
+<div class="line c-7"><span class="spk">거지</span><span class="say">잠깐만--- 어깨가 넓지도 하지. 작은 발바닥으로 걷느니보다 어깨를 땅에다 눕히는게 더 편하지않을까?</span></div>
+<div class="line c-1"><span class="spk">신랑</span><span class="say"><span class="inline-stage">(흔들며)</span> 대답해요. 지나가는 걸 봤오?</span></div>
+<div class="line c-7"><span class="spk">거지</span><span class="say">아니, 안지나갔어. 그렇지만 지금 언덕을 내려오고 있어. 들리지요?</span></div>
+<div class="line c-1"><span class="spk">신랑</span><span class="say">안 들리는데.</span></div>
+<div class="line c-7"><span class="spk">거지</span><span class="say">길은 아시오?</span></div>
+<div class="line c-1"><span class="spk">신랑</span><span class="say">길이야 어떻든 나는 찾고 말테니까.</span></div>
+<div class="line c-7"><span class="spk">거지</span><span class="say">내가 안내해드리지. 이 근처는 잘 아니까.</span></div>
+<div class="line c-1"><span class="spk">신랑</span><span class="say">갑시다. 어느 쪽이요?</span></div>
+<div class="line c-7"><span class="spk">거지</span><span class="say"><span class="inline-stage">(극적으로)</span> 이 쪽으로 갑시다.</span></div>
+<p class="stage">(퇴장)</p>
+<div class="line gwangdae"><span class="spk">광대들</span><span class="say">일이시는 죽음이여! 찬란하게 피어오르는 죽음이여! 꽃으로 가리지마라 혼례를! 슬퍼하는 죽음이여! 둘의 사랑을 위해 푸른가지를 남기리</span></div>
+<p class="stage">(사내와 신부 등장)</p>
+<div class="line c-3"><span class="spk">사내</span><span class="say">쉿, 조용히---</span></div>
+<div class="line c-2"><span class="spk">신부</span><span class="say">여기서부터는 나 혼자 가겠어요. 이젠 돌아가세요. 그만 돌아가주세요.</span></div>
+<div class="line c-3"><span class="spk">사내</span><span class="say">조용히 하래두.</span></div>
+<div class="line c-2"><span class="spk">신부</span><span class="say">당신 이빨로 당신 손으로 어떻게든 하세요. 내 깨끗한 목덜미에서 이 무거운 쇠사슬을 풀어주세요. 살게 해주세요. 나를 죽이고 싶지 않거든 이 손 신부의 손에 당신 칼을 쥐어 줘요. 어쩌자구 유리알 조각조각 혓바닥에 돋아날까요?</span></div>
+<div class="line c-3"><span class="spk">사내</span><span class="say">일은 저질러졌소. 나는 당신과 같이 가야 해.</span></div>
+<div class="line c-2"><span class="spk">신부</span><span class="say">강제로라면 몰라도.</span></div>
+<div class="line c-3"><span class="spk">사내</span><span class="say">강제로라구? 누가 먼저 툇마루를 내려왔오?</span></div>
+<div class="line c-2"><span class="spk">신부</span><span class="say">나 였어요. 내가 그랬어요.</span></div>
+<div class="line c-3"><span class="spk">사내</span><span class="say">누가 먼저 말의 고삐를 채웠오?</span></div>
+<div class="line c-2"><span class="spk">신부</span><span class="say">나였어요. 내가 그랬어요.</span></div>
+<div class="line c-3"><span class="spk">사내</span><span class="say">신발을 신겨 주고 말을 재촉한 손 그건 누구의 손이었오?</span></div>
+<div class="line c-2"><span class="spk">신부</span><span class="say">같은 손. 당신 것인 이 손이었어요. 당신을 사랑해요. 당신을. 그렇지만 날 버리세요. 내가 만약 당신을 죽일 수 있다면 오랑캐꽃으로 예쁘게 수를 놓은 수의로 당신을 감싸겠어요. 어쩌자구 이렇게 큰 슬픔의 불이 머리에 솔구칠까요.</span></div>
+<div class="line c-3"><span class="spk">사내</span><span class="say">어쩌자구 유리알 조각조각이 혓바닥에 솟아오를까. 당신을 잊으려고 헛되이 노력을 했기 때문인가. 멀리서 당신을 보면 난 두눈에 모래를 뿌렸오. 그렇지만 말에 올라타면 말은 곧장 당신 집 앞에 찾아갔어. 내 잘못은 아니었어.</span></div>
+<div class="line c-2"><span class="spk">신부</span><span class="say">아, 미친 짓이지. 잠자리도 음식도 당신과 함께 하고 싶지는 않았어. 그런데도 당신과 같이 있고 싶은 마음은 한시도 나를 떠나지 않았어요. 산들 바람을 타고 나르는 꽃가루, 꽃가루처럼 당신 곁에 날아갔어요. 난 착하고 정직한 신랑을 모든 사람을 버리고 떠나왔어요. 혼인 잔치가 끝나기도 전에, 족두리를 쓴 채로, 당신한테 법이 닥쳐와요. 그게 난 싫어요. 그걸 보고 있을 수 없어요. 도망가세요. 당신 편은 한 사람도 없어요.</span></div>
+<div class="line c-3"><span class="spk">사내</span><span class="say">이른 아침, 새들이 나무위에서 노래하고 밤이 시들어가고 있어. 아무도 보지 않는 그늘로 갑시다. 원수도 원한도 내겐 문제가 되지 않아.</span></div>
+<p class="stage">(포옹한다.)</p>
+<div class="line c-2"><span class="spk">신부</span><span class="say">쉿.</span></div>
+<div class="line c-3"><span class="spk">사내</span><span class="say">쫓아오나보다.</span></div>
+<div class="line c-2"><span class="spk">신부</span><span class="say">도망가요. 난 여기서 죽겠어요.</span></div>
+<div class="line c-3"><span class="spk">사내</span><span class="say">이리로 오나봐!</span></div>
+<div class="line c-2"><span class="spk">신부</span><span class="say">도망치세요.</span></div>
+<div class="line c-3"><span class="spk">사내</span><span class="say">쉿.</span></div>
+<div class="line c-2"><span class="spk">신부</span><span class="say">그럼 둘이 함께 도망가요.</span></div>
+<div class="line c-3"><span class="spk">사내</span><span class="say">죽음이 우리를 갈라 놓기 전에는 우리는 떨어질 수 없어.</span></div>
+<p class="stage">(둘 퇴장)</p>
+<p class="stage">달이 천천히 나타난다. 둘연 두 줄기 긴 날카로운 비명소리가 들린다.</p>
+<p class="stage">두번째 비명이 들린 뒤 거지 등장.</p>
+<p class="stage">(달, 거지 퇴장)</p>
+<div class="line gwangdae"><span class="spk">광대들</span><span class="say">그들은 죽었다. 그래 죽었어. 두 줄기 성난 물살이 겨우 잠잠해졌어. 커다란 바위사이에서 두 사내가 말 발굽 밑에 밤의 뽀얀 불 빛속에 죽은 두 남자 그래 그들은 죽었다. 죽었어. 눈은 짓밟힌 꽃송이 이는 굳어서 얼어 붙은 눈송이 둘이 다 쓰러져 죽고 신부는 돌아 오는 길 치마 폭과 머리칼에 핏자욱하고 두 사내는 명주 천에 싸여 오고 있어. 키가 큰 네 명의 장정이 어깨위에 메고 그것 뿐이지. 찬란한 꽃에는 더러운 모래 영원한 침묵은 꽃처럼 피어난다. 비가 오건 밤이 내리건 살아 있건 죽어 있건 이젠 그것이 문제가 아니다. 찬란한 꽃에는 더러운 모래 찬란한 꽃에는 더러운 모래 찬란한 꽃에는 더러운 모래</span></div>
+<p class="stage">(광대들 무당굿을 펼치고 길닦음으로 퇴장한다.)</p>
+<p class="stage">1983. 3.13. C.H.A.</p>
+<p class="stage">1983. 3.13. C.H.A.</p>
+</section>
+  <div class="endmark">막</div>
+</div>
+</body>
+</html>
