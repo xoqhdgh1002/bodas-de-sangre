@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>피의 결혼식 · 발표 덱</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800;900&family=Noto+Serif+KR:wght@700;800;900&display=swap');
+:root{
+  --bg:#0d0d1a; --ink:#f0ede6; --muted:#b0a898; --gold:#c9a84c;
+  --blood:#9b1b1b; --blood2:#c0392b; --panel:#1a1a2b; --line:#2c2c40;
+  --sans:"Noto Sans KR","Malgun Gothic","맑은 고딕",sans-serif;
+  --serif:"Noto Serif KR","Malgun Gothic",serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{background:#070710;color:var(--ink);font-family:var(--sans);overflow:hidden;
+  word-break:keep-all;-webkit-font-smoothing:antialiased}
+.deck{position:fixed;inset:0;display:grid;place-items:center;cursor:default}
+
+/* slide & 16:9 stage that scales to viewport */
+.slide{position:absolute;inset:0;display:grid;place-items:center;
+  opacity:0;visibility:hidden;transform:scale(.985);transition:opacity .4s,transform .4s,visibility .4s}
+.slide.active{opacity:1;visibility:visible;transform:none}
+.stage{position:relative;width:min(95vw,168.9vh);aspect-ratio:16/9;
+  container-type:size;
+  background:radial-gradient(125% 130% at 82% 8%,#241a2e 0%,var(--bg) 58%);
+  border-radius:2cqmin;overflow:hidden;box-shadow:0 4cqmin 9cqmin rgba(0,0,0,.55);
+  border:1px solid #26263a}
+.bar{position:absolute;left:3.4cqmin;top:3.4cqmin;bottom:3.4cqmin;width:.7cqmin;
+  border-radius:1cqmin;background:linear-gradient(180deg,var(--blood),#3a1410)}
+.pad{position:absolute;inset:0;padding:6.2cqmin 6.5cqmin 6.2cqmin 7.2cqmin;
+  display:flex;flex-direction:column;justify-content:center}
+.pg{position:absolute;right:4cqmin;bottom:3cqmin;color:#5b5570;font-size:2.2cqmin;font-weight:800;letter-spacing:.15em}
+
+/* shared type */
+.kicker{color:var(--gold);font-weight:800;font-size:2.7cqmin;letter-spacing:.06em;margin-bottom:2.4cqmin;
+  display:flex;align-items:center;gap:1.4cqmin;flex-wrap:wrap}
+.kicker.big-k{font-size:5.2cqmin;color:#fff;margin-bottom:4cqmin}
+.h2{font-family:var(--serif);font-weight:800;font-size:6.6cqmin;color:#fff;line-height:1.1;
+  display:flex;align-items:baseline;gap:2cqmin;flex-wrap:wrap}
+.h2 .years{font-size:3cqmin;color:var(--gold);font-weight:700;font-family:var(--sans)}
+.pgchip{background:rgba(201,168,76,.16);border:1px solid rgba(201,168,76,.4);color:var(--gold);
+  border-radius:1.4cqmin;padding:.3em .9em;font-size:2.1cqmin;font-weight:700;letter-spacing:.02em}
+.pgchip.big{font-size:3.4cqmin}
+.gold{color:var(--gold);font-weight:800}
+
+/* ---- 1 title ---- */
+.title-slide .stage{background:radial-gradient(130% 130% at 50% 20%,#2a1820 0%,#0c0c16 62%)}
+.title-slide .center{position:absolute;inset:0;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;text-align:center}
+.title-slide .kicker{justify-content:center;letter-spacing:.42em;font-size:2.6cqmin}
+.big{font-family:var(--serif);font-weight:900;font-size:17cqmin;line-height:1;letter-spacing:.02em;margin:.5cqmin 0}
+.big .hl{color:var(--blood2)}
+.drop{font-size:6cqmin;margin:1cqmin 0 2cqmin}
+.title-slide .byline{color:var(--ink);font-size:3.2cqmin;font-family:var(--serif)}
+.title-slide .club{color:var(--muted);font-size:2.5cqmin;margin-top:1.2cqmin;letter-spacing:.1em}
+.title-slide .orn{width:22cqmin;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:3cqmin auto}
+
+/* ---- 2 bio timeline ---- */
+.biotl{margin:4.2cqmin 0 0;display:flex;flex-direction:column;gap:0;position:relative}
+.bstep{display:flex;align-items:center;gap:2.6cqmin;padding:1.35cqmin 0;position:relative}
+.bstep .dot{flex:0 0 auto;width:2.4cqmin;height:2.4cqmin;border-radius:50%;background:var(--gold);
+  box-shadow:0 0 0 .7cqmin rgba(201,168,76,.15);position:relative;z-index:2}
+.bstep.red .dot{background:var(--blood2);box-shadow:0 0 0 .7cqmin rgba(192,57,43,.2)}
+.bstep:not(:last-child)::before{content:"";position:absolute;left:1.15cqmin;top:50%;bottom:-50%;
+  width:.28cqmin;background:var(--line);z-index:1}
+.bstep b{flex:0 0 auto;color:var(--gold);font-size:3cqmin;font-weight:800;width:8cqmin}
+.bstep.red b{color:var(--blood2)}
+.bstep span:last-child{color:var(--ink);font-size:3cqmin}
+.tags{display:flex;gap:1.6cqmin;flex-wrap:wrap;margin-top:3.4cqmin}
+.tag{background:var(--panel);border:1px solid var(--line);border-radius:6cqmin;padding:.55em 1.1em;
+  font-size:2.5cqmin;color:#e6dccb;font-weight:600}
+
+/* ---- 3 vs + devices ---- */
+.vs{display:flex;align-items:stretch;gap:2.4cqmin;margin-top:1cqmin}
+.vscard{flex:1;border-radius:2.4cqmin;padding:3.6cqmin 3cqmin;text-align:center;border:1px solid var(--line)}
+.vscard.wed{background:linear-gradient(180deg,#15233a,#101a2c)}
+.vscard.blood{background:linear-gradient(180deg,#2c1414,#1a0e0e)}
+.vscard .vi{font-size:7cqmin}
+.vscard .vt{font-family:var(--serif);font-weight:800;font-size:5cqmin;color:#fff;margin:.3cqmin 0}
+.vscard .vd{color:var(--muted);font-size:2.6cqmin}
+.vsx{align-self:center;font-family:var(--serif);font-weight:900;font-size:5cqmin;color:var(--blood2)}
+.vsnote{text-align:center;margin:3cqmin 0;font-size:3.1cqmin;color:#e6dccb}
+.vsnote b{color:var(--blood2);font-weight:800}
+.devs{display:flex;gap:2cqmin}
+.dev{flex:1;background:var(--panel);border:1px solid var(--line);border-left:.7cqmin solid var(--gold);
+  border-radius:1.6cqmin;padding:2.2cqmin 2.4cqmin}
+.dev .di{font-size:4.4cqmin}
+.dev b{display:block;color:#fff;font-size:3cqmin;margin:.5cqmin 0 .3cqmin}
+.dev span{color:var(--muted);font-size:2.3cqmin}
+
+/* ---- 4 structure timeline ---- */
+.tl-lab{color:var(--gold);font-weight:800;font-size:2.9cqmin;margin:1cqmin 0 1.6cqmin}
+.tl-lab span{color:var(--muted);font-weight:500;font-size:2.4cqmin;margin-left:.6em}
+.flow{display:flex;align-items:stretch;flex-wrap:wrap;gap:1.2cqmin .7cqmin;margin-bottom:2cqmin}
+.flow i{display:flex;align-items:center;color:#7a6e84;font-style:normal;font-weight:800;font-size:3cqmin}
+.chip2{display:flex;flex-direction:column;align-items:center;justify-content:center;
+  background:#241b2e;border:1px solid #3a2d3f;border-radius:1.5cqmin;padding:1.4cqmin 1.8cqmin;line-height:1.25;min-width:11cqmin}
+.chip2 em{font-style:normal;color:#e7dccc;font-size:2.6cqmin;white-space:nowrap}
+.chip2 b{color:var(--gold);font-size:2.05cqmin;font-weight:700;margin-top:.4cqmin}
+.chip2.key{border-color:var(--blood2);background:#2c1414}
+.chip2.key em{color:#ffb3a0}.chip2.key b{color:#ff9b86}
+.chip2.dead{border-color:var(--blood2);background:#2c1414}.chip2.dead em{color:#ffb3a0}
+.tl-mid{display:inline-flex;align-items:center;gap:.6em;margin:.4cqmin 0 2.6cqmin;padding:1cqmin 2cqmin;
+  border-radius:1.4cqmin;background:rgba(155,27,27,.18);border:1px solid rgba(201,168,76,.32);
+  color:#f0c9a0;font-size:2.6cqmin;font-weight:700}
+.tl-mid b{color:#fff}
+
+/* ---- 5 relationship ---- */
+.rel{display:flex;align-items:center;justify-content:center;gap:0;margin-top:2cqmin}
+.person{display:flex;flex-direction:column;align-items:center;gap:.6cqmin;
+  background:var(--panel);border:1px solid var(--line);border-radius:2.2cqmin;padding:2.6cqmin 3.4cqmin;min-width:22cqmin}
+.person.danger{border-color:var(--blood2);background:#1e1216}
+.person .pi{font-size:7cqmin}
+.person b{color:#fff;font-size:3.6cqmin;font-family:var(--serif)}
+.person .sub{color:var(--muted);font-size:2.2cqmin;text-align:center}
+.reledge{display:flex;flex-direction:column;align-items:center;padding:0 1cqmin;min-width:16cqmin}
+.reledge .rl{color:var(--gold);font-size:2.4cqmin;font-weight:700;margin-bottom:.6cqmin}
+.reledge .line{width:100%;height:.4cqmin;background:linear-gradient(90deg,var(--gold),transparent)}
+.intruder{display:flex;align-items:center;gap:3cqmin;margin-top:3.4cqmin}
+.namebox{flex:1;background:rgba(201,168,76,.08);border:1px dashed rgba(201,168,76,.4);border-radius:1.8cqmin;
+  padding:2.4cqmin 2.8cqmin;font-size:2.9cqmin;color:#e6dccb;line-height:1.5}
+.namebox .q2{color:var(--muted);font-size:2.4cqmin}
+
+/* ---- 6 flee + call/response ---- */
+.flee{display:flex;align-items:center;gap:2.2cqmin;margin-top:1cqmin;flex-wrap:wrap}
+.flee .plus{font-size:4cqmin;color:var(--muted);font-weight:800}
+.flee .arrowbig{font-size:3.4cqmin;color:var(--gold);font-weight:800}
+.callresp{margin:3.6cqmin 0 0;display:flex;flex-direction:column;gap:1.4cqmin}
+.cr{font-family:var(--serif);font-size:3.6cqmin;color:#fff;display:flex;align-items:center;gap:1.6cqmin}
+.who2{font-family:var(--sans);font-size:2.2cqmin;font-weight:800;color:#fff;border-radius:5cqmin;padding:.25em .9em}
+.who2.sa{background:#4a3b86}.who2.sb{background:#a8324a}
+.think{margin-top:3.4cqmin;background:rgba(155,27,27,.14);border-left:.7cqmin solid var(--blood2);
+  border-radius:0 1.4cqmin 1.4cqmin 0;padding:1.8cqmin 2.4cqmin;font-size:3cqmin;color:#f0d6cc}
+.think b{color:#fff}
+
+/* ---- 7 end ---- */
+.chorusnote{margin:2.4cqmin 0;color:var(--muted);font-size:2.7cqmin}
+.bigquote{font-family:var(--serif);font-size:4.4cqmin;color:#fff;line-height:1.35;
+  border-left:.8cqmin solid var(--blood2);padding-left:2.4cqmin;margin:1cqmin 0}
+.bigquote .qby{display:block;font-family:var(--sans);font-size:2.5cqmin;color:var(--gold);margin-top:1cqmin}
+
+/* ---- 8 questions ---- */
+.qcards{display:flex;flex-direction:column;gap:2.2cqmin}
+.qc{display:flex;align-items:center;gap:2.6cqmin;background:var(--panel);border:1px solid var(--line);
+  border-radius:2cqmin;padding:2.6cqmin 3cqmin}
+.qc .qn{flex:0 0 auto;width:6.6cqmin;height:6.6cqmin;border-radius:50%;display:grid;place-items:center;
+  background:var(--blood);color:#fff;font-weight:900;font-size:3.4cqmin;font-family:var(--serif)}
+.qc p{font-size:3.1cqmin;color:#ece3d6;line-height:1.4}
+.qc b{color:var(--gold)}
+
+/* ---- 9 reading ---- */
+.readbox{margin-top:2cqmin;text-align:center}
+.readbox .range{font-family:var(--serif);font-size:3.8cqmin;color:#fff;margin:3cqmin 0}
+.readbox .range .muted{font-family:var(--sans);font-size:2.4cqmin;color:var(--gold)}
+.castrow{display:flex;gap:1.6cqmin;justify-content:center;flex-wrap:wrap;margin:3cqmin 0}
+.cast{color:#fff;font-weight:700;font-size:2.8cqmin;border-radius:6cqmin;padding:.5em 1.3em}
+.cast.c1{background:#7a1530}.cast.c2{background:#1d5e7a}.cast.c3{background:#7a5a1d}
+.cast.c4{background:#9a5a2a}.cast.c5{background:#2f6d52}
+.tagline{margin-top:3cqmin;font-size:3.2cqmin;color:var(--muted)}
+.tagline b{color:#fff}
+
+/* HUD */
+.hud{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);z-index:20;
+  display:flex;align-items:center;gap:14px;background:rgba(15,15,26,.82);backdrop-filter:blur(8px);
+  border:1px solid #2a2a40;border-radius:999px;padding:7px 12px}
+.hud button{background:none;border:none;color:#cfc6bb;font-size:18px;cursor:pointer;
+  width:30px;height:30px;border-radius:50%;display:grid;place-items:center;transition:.15s}
+.hud button:hover{background:#2a2a40;color:#fff}
+.counter{color:#cfc6bb;font-size:13px;font-weight:700;min-width:46px;text-align:center;font-variant-numeric:tabular-nums}
+.dots{display:flex;gap:6px;align-items:center}
+.dot{width:8px;height:8px;border-radius:50%;background:#3a3a52;border:none;padding:0;cursor:pointer;transition:.18s}
+.dot.on{background:var(--gold);transform:scale(1.35)}
+.progress{position:fixed;top:0;left:0;height:3px;background:var(--blood);z-index:20;transition:width .35s ease;box-shadow:0 0 10px rgba(192,57,43,.6)}
+.hint{position:fixed;bottom:14px;right:16px;color:#5a5a72;font-size:12px;z-index:20}
+@media(max-width:640px){.hint{display:none}.hud{bottom:10px}}
+</style>
+</head>
+<body>
+<div class="progress" id="prog"></div>
+<div class="deck" id="deck">
+
+  <!-- 1 -->
+  <section class="slide active title-slide">
+    <div class="stage"><div class="bar"></div>
+      <div class="center">
+        <div class="kicker">BODAS DE SANGRE</div>
+        <h1 class="big">피<span class="hl">의</span> 결혼식</h1>
+        <div class="drop">🩸</div>
+        <div class="orn"></div>
+        <div class="byline">Federico García Lorca · 김정옥 구성·연출</div>
+        <div class="club">SANS 연극클럽</div>
+      </div>
+      <div class="pg">01</div>
+    </div>
+  </section>
+
+  <!-- 2 작가 -->
+  <section class="slide">
+    <div class="stage"><div class="bar"></div>
+      <div class="pad">
+        <div class="kicker">작가</div>
+        <h2 class="h2">Federico García Lorca <span class="years">1898 – 1936</span></h2>
+        <div class="biotl">
+          <div class="bstep"><span class="dot"></span><b>1898</b><span>안달루시아 출생 · 유복한 집안 (아버지는 법률가를 원함)</span></div>
+          <div class="bstep"><span class="dot"></span><b>1919–</b><span>마드리드 학생기숙사 — 달리 · 부뉴엘과 교유</span></div>
+          <div class="bstep"><span class="dot"></span><b>1928</b><span>《집시 로만세》 대히트 — 국민 시인</span></div>
+          <div class="bstep"><span class="dot"></span><b>1933</b><span>《피의 결혼》 초연</span></div>
+          <div class="bstep red"><span class="dot"></span><b>1936</b><span>스페인 내전 — 재판 없이 총살 (38세)</span></div>
+        </div>
+        <div class="tags">
+          <span class="tag">🏳️‍🌈 동성애자</span>
+          <span class="tag">✊ 집시·소외된 자 옹호</span>
+          <span class="tag">🌹 공화파 지지</span>
+          <span class="tag">🎨 아방가르드 한복판</span>
+        </div>
+      </div>
+      <div class="pg">02</div>
+    </div>
+  </section>
+
+  <!-- 3 작품 특징 -->
+  <section class="slide">
+    <div class="stage"><div class="bar"></div>
+      <div class="pad">
+        <div class="kicker">작품 특징</div>
+        <div class="vs">
+          <div class="vscard wed"><div class="vi">💍</div><div class="vt">결혼</div><div class="vd">사회가 만든 가장 엄숙한 약속</div></div>
+          <div class="vsx">VS</div>
+          <div class="vscard blood"><div class="vi">🩸</div><div class="vt">피</div><div class="vd">혈통 · 욕망 · 죽음</div></div>
+        </div>
+        <div class="vsnote">어울리지 않는 두 단어가 충돌하는 순간 → <b>비극</b></div>
+        <div class="devs">
+          <div class="dev"><div class="di">🕯️</div><b>리추얼</b><span>혼례와 장례, 두 의식의 뼈대</span></div>
+          <div class="dev"><div class="di">⏪</div><b>역순 구조</b><span>결말(죽음)을 먼저 보여줌</span></div>
+          <div class="dev"><div class="di">🎭</div><b>코러스 → 광대</b><span>그리스 비극의 코러스를 광대로</span></div>
+        </div>
+      </div>
+      <div class="pg">03</div>
+    </div>
+  </section>
+
+  <!-- 4 구조 타임라인 -->
+  <section class="slide">
+    <div class="stage"><div class="bar"></div>
+      <div class="pad">
+        <div class="kicker">구조 타임라인 · 역순 · 액자 구조</div>
+        <div class="tl-lab">실제 사건 순서 <span>이야기 시간순</span></div>
+        <div class="flow">
+          <span class="chip2"><em>신부 단장</em><b>2장</b></span><i>→</i>
+          <span class="chip2"><em>혼례</em><b>3장</b></span><i>→</i>
+          <span class="chip2"><em>도주</em><b>4장</b></span><i>→</i>
+          <span class="chip2"><em>숲 · 죽음</em><b>6장</b></span><i>→</i>
+          <span class="chip2 key"><em>애도 · 장례</em><b>1장</b></span>
+        </div>
+        <div class="tl-mid">↓ 결말(죽음·장례)을 <b>맨 앞으로</b> 끌어온다</div>
+        <div class="tl-lab">무대 진행 순서 <span>우리가 읽은 순서 = 역순</span></div>
+        <div class="flow">
+          <span class="chip2 key"><em>①죽음·장례</em><b>1장</b></span><i>→</i>
+          <span class="chip2"><em>②신부 단장</em><b>2장</b></span><i>→</i>
+          <span class="chip2"><em>③혼례</em><b>3장</b></span><i>→</i>
+          <span class="chip2"><em>④도주 발각</em><b>4장</b></span><i>→</i>
+          <span class="chip2"><em>⑤광대</em><b>5장</b></span><i>→</i>
+          <span class="chip2 key"><em>⑥숲·죽음·길닦음</em><b>6장</b></span>
+        </div>
+      </div>
+      <div class="pg">04</div>
+    </div>
+  </section>
+
+  <!-- 5 줄거리 01 -->
+  <section class="slide">
+    <div class="stage"><div class="bar"></div>
+      <div class="pad">
+        <div class="kicker">줄거리 ① · 결혼식 전 <span class="pgchip">페이지 005~</span></div>
+        <div class="rel">
+          <div class="person"><div class="pi">👰</div><b>신부</b></div>
+          <div class="reledge"><span class="rl">결혼</span><div class="line"></div></div>
+          <div class="person"><div class="pi">🤵</div><b>신랑</b><span class="sub">성실하고 좋은 사람</span></div>
+        </div>
+        <div class="intruder">
+          <div class="person danger"><div class="pi">🐎</div><b>사내</b><span class="sub">초대받지 않은 옛 연인<br>이미 결혼한 몸</span></div>
+          <div class="namebox">원작에서 <b class="gold">이 사내에게만 이름</b>이 있다 — <span class="gold">레오나르도</span><br><span class="q2">우리 한국판에선 그냥 ‘사내’ — 왜 이름을 지웠을까?</span></div>
+        </div>
+      </div>
+      <div class="pg">05</div>
+    </div>
+  </section>
+
+  <!-- 6 줄거리 02 -->
+  <section class="slide">
+    <div class="stage"><div class="bar"></div>
+      <div class="pad">
+        <div class="kicker">줄거리 ② · 도주 <span class="pgchip">페이지 014</span></div>
+        <div class="flee">
+          <div class="person"><div class="pi">👰</div><b>신부</b></div>
+          <div class="plus">+</div>
+          <div class="person danger"><div class="pi">🐎</div><b>사내</b></div>
+          <div class="arrowbig">→ 말 타고 도주 🌙</div>
+        </div>
+        <div class="callresp">
+          <div class="cr"><span class="who2 sa">사내</span>“누가 먼저 툇마루를 내려왔오?”</div>
+          <div class="cr"><span class="who2 sb">신부</span>“나였어요.”</div>
+        </div>
+        <div class="think">💭 생각해볼 점 — 신부의 도주는 <b>선택</b>이었을까?</div>
+      </div>
+      <div class="pg">06</div>
+    </div>
+  </section>
+
+  <!-- 7 줄거리 03 -->
+  <section class="slide">
+    <div class="stage"><div class="bar"></div>
+      <div class="pad">
+        <div class="kicker">줄거리 ③ · 결말 <span class="pgchip">페이지 003</span></div>
+        <div class="flow">
+          <span class="chip2"><em>🤵 신랑 추격</em></span><i>→</i>
+          <span class="chip2 dead"><em>⚔️ 두 남자 모두 죽음</em></span><i>→</i>
+          <span class="chip2"><em>👰 신부 홀로 귀환</em></span>
+        </div>
+        <div class="chorusnote">🎭 광대들이 운명을 암시한다</div>
+        <div class="bigquote">“저 여자에겐 죄가 없다. 내게도 없다.<br>그렇다면 누구 죄란 말인가?”<span class="qby">— 어머니</span></div>
+        <div class="think">💭 어머니는 <b>피해자</b>인가, <b>가해자</b>인가?</div>
+      </div>
+      <div class="pg">07</div>
+    </div>
+  </section>
+
+  <!-- 8 토론 -->
+  <section class="slide">
+    <div class="stage"><div class="bar"></div>
+      <div class="pad">
+        <div class="kicker big-k">함께 이야기해봐요</div>
+        <div class="qcards">
+          <div class="qc"><span class="qn">1</span><p>신부가 먼저 툇마루를 내려왔다. 이건 <b>선택</b>이었을까?</p></div>
+          <div class="qc"><span class="qn">2</span><p>원작에서 <b>사내에게만 이름</b>(레오나르도)이 있다. 왜? 한국판은 왜 지웠을까?</p></div>
+          <div class="qc"><span class="qn">3</span><p>“죄가 없다”는 어머니 — <b>피해자</b>인가 <b>가해자</b>인가?</p></div>
+        </div>
+      </div>
+      <div class="pg">08</div>
+    </div>
+  </section>
+
+  <!-- 9 낭독 -->
+  <section class="slide">
+    <div class="stage"><div class="bar"></div>
+      <div class="pad">
+        <div class="kicker">낭독 · 같이 읽어봐요</div>
+        <div class="readbox">
+          <span class="pgchip big">페이지 009</span>
+          <div class="range">“방에 없는데” <span class="muted">아버지</span> &nbsp;→&nbsp; “말을 가져와요” <span class="muted">어머니</span></div>
+          <div class="castrow">
+            <span class="cast c1">어머니</span><span class="cast c2">신랑</span>
+            <span class="cast c3">아버지</span><span class="cast c4">옥분</span><span class="cast c5">아내</span>
+          </div>
+          <div class="tagline">🎙️ 무대도 없고, 의상도 없어요. <b>목소리만으로.</b></div>
+        </div>
+      </div>
+      <div class="pg">09</div>
+    </div>
+  </section>
+
+</div>
+
+<div class="hud">
+  <button id="prev" aria-label="이전">‹</button>
+  <span class="counter" id="counter">1 / 9</span>
+  <button id="next" aria-label="다음">›</button>
+  <div class="dots" id="dots"></div>
+</div>
+<div class="hint">← → 또는 클릭으로 이동 · F 전체화면</div>
+
+<script>
+(function(){
+  var slides=[].slice.call(document.querySelectorAll('.slide'));
+  var counter=document.getElementById('counter');
+  var prog=document.getElementById('prog');
+  var dotsWrap=document.getElementById('dots');
+  var cur=0;
+  slides.forEach(function(_,i){
+    var d=document.createElement('button'); d.className='dot';
+    d.addEventListener('click',function(e){e.stopPropagation();go(i);});
+    dotsWrap.appendChild(d);
+  });
+  var dots=[].slice.call(dotsWrap.children);
+  function go(i){
+    cur=Math.max(0,Math.min(slides.length-1,i));
+    slides.forEach(function(s,k){s.classList.toggle('active',k===cur);});
+    dots.forEach(function(d,k){d.classList.toggle('on',k===cur);});
+    counter.textContent=(cur+1)+' / '+slides.length;
+    prog.style.width=((cur+1)/slides.length*100)+'%';
+    if(history.replaceState) history.replaceState(null,'','#'+(cur+1));
+  }
+  function next(){go(cur+1);} function prev(){go(cur-1);}
+  document.getElementById('next').addEventListener('click',function(e){e.stopPropagation();next();});
+  document.getElementById('prev').addEventListener('click',function(e){e.stopPropagation();prev();});
+  document.addEventListener('keydown',function(e){
+    if(e.key==='ArrowRight'||e.key==='PageDown'||e.key===' '){e.preventDefault();next();}
+    else if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();prev();}
+    else if(e.key==='Home'){go(0);} else if(e.key==='End'){go(slides.length-1);}
+    else if(e.key==='f'||e.key==='F'){if(!document.fullscreenElement){document.documentElement.requestFullscreen&&document.documentElement.requestFullscreen();}else{document.exitFullscreen&&document.exitFullscreen();}}
+  });
+  document.getElementById('deck').addEventListener('click',function(e){
+    if(e.target.closest('.hud'))return;
+    if(e.clientX/window.innerWidth>0.5)next();else prev();
+  });
+  var h=parseInt((location.hash||'').replace('#',''),10);
+  go(h>0?h-1:0);
+})();
+</script>
+</body>
+</html>

@@ -17,7 +17,7 @@
   .drop{font-size:1.5rem;color:var(--blood);margin:10px 0 0}
   .orn{width:120px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:24px auto}
   .lede{color:var(--muted);font-family:"Noto Serif KR",serif;font-size:1.05rem;margin:0 auto 40px;max-width:560px}
-  .cards{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:0 auto;max-width:680px}
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:0 auto;max-width:980px}
   a.card{display:block;text-decoration:none;color:inherit;background:var(--panel);border:1px solid var(--rule);
     border-radius:16px;padding:30px 26px;text-align:left;transition:.18s;box-shadow:0 2px 14px rgba(60,40,30,.05)}
   a.card:hover{transform:translateY(-3px);border-color:var(--blood);box-shadow:0 10px 30px rgba(139,26,26,.14)}
@@ -26,7 +26,7 @@
   .card p{margin:0;color:var(--muted);font-size:.92rem;line-height:1.7}
   .card .go{margin-top:16px;color:var(--blood);font-weight:700;font-size:.9rem}
   .foot{margin-top:46px;color:var(--muted);font-size:.8rem;text-align:center;line-height:1.7}
-  @media(max-width:560px){.cards{grid-template-columns:1fr}}
+  @media(max-width:820px){.cards{grid-template-columns:1fr;max-width:440px}}
 </style>
 </head>
 <body>
@@ -43,8 +43,14 @@
         <p>로르카의 비극을 무당굿·광대 틀로 재구성한 한국 공연본. 화자별 색상과 지문 구분으로 읽기 편하게.</p>
         <div class="go">읽기 →</div>
       </a>
+      <a class="card" href="deck.html">
+        <span class="tag">발표 슬라이드 · 풀스크린</span>
+        <h2>발표 덱</h2>
+        <p>글 대신 타임라인·관계도·아이콘으로 한눈에. 화살표·클릭으로 넘기는 시각 프레젠테이션(9장).</p>
+        <div class="go">발표하기 →</div>
+      </a>
       <a class="card" href="guide.html">
-        <span class="tag">발제 진행 대본 · 슬라이드 8</span>
+        <span class="tag">발제 진행 대본 · 슬라이드별</span>
         <h2>발제 가이드</h2>
         <p>슬라이드별 진행 스크립트. 각 화면을 띄운 상태에서 A·B 두 진행자가 말할 대사를 슬라이드와 함께.</p>
         <div class="go">열기 →</div>
