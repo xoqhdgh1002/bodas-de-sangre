@@ -114,6 +114,28 @@ body{margin:0;background:var(--bg);color:var(--ink);
 .ptext{margin:8px 0}
 .q{color:#7a2e2e;background:#f6ecec;border-radius:4px;padding:0 4px}
 
+/* structure timeline */
+.snum.plus{background:var(--gold)}
+.navtl b{background:var(--gold)!important;color:#fff!important}
+.tlcard{max-width:680px;aspect-ratio:auto;display:block;padding:26px 28px}
+.tlcard .ss-kicker{margin-bottom:16px}
+.tl-track{margin:0}
+.tl-lab{color:var(--slide-acc);font-weight:700;font-size:.9em;margin:0 0 9px}
+.tl-lab span{color:#9a8674;font-weight:500;font-size:.86em;margin-left:.4em}
+.tl-row{display:flex;flex-wrap:wrap;align-items:stretch;gap:7px 4px;margin-bottom:4px}
+.tl-row i{display:flex;align-items:center;color:#6e5d4f;font-style:normal;font-weight:700;font-size:1.05em}
+.chip{display:inline-flex;flex-direction:column;align-items:center;justify-content:center;
+  background:#241b15;border:1px solid #3a2d23;border-radius:9px;padding:7px 11px;min-width:62px;line-height:1.3}
+.chip em{font-style:normal;color:#e7dccc;font-size:.86em;white-space:nowrap}
+.chip b{color:var(--slide-acc);font-size:.74em;font-weight:700;margin-top:2px}
+.chip.end{border-color:var(--blood);background:#2c1513}.chip.end em{color:#ffb3a0}.chip.end b{color:#ff9b86}
+.chip.start{border-color:var(--blood);background:#2c1513}.chip.start em{color:#ffd2c4}.chip.start b{color:#ff9b86}
+.tl-mid{display:flex;align-items:center;gap:.5em;margin:14px 0;padding:8px 12px;border-radius:8px;
+  background:rgba(139,26,26,.16);border:1px solid rgba(217,138,58,.3);color:#f0c9a0;font-size:.9em;font-weight:600}
+.tl-mid b{color:#fff}
+.tlcap{text-align:center;color:var(--muted);font-size:.78rem;margin:10px 0 0;line-height:1.6}
+.tlcap b{color:var(--blood)}
+
 .foot{margin-top:40px;padding-top:18px;border-top:1px solid var(--rule);color:var(--muted);font-size:.85rem}
 .foot ul{margin:0;padding-left:18px}
 
@@ -138,7 +160,7 @@ body{margin:0;background:var(--bg);color:var(--ink);
     <div class="orn"></div>
   </header>
   <div class="legend"><ul><li>A / B 구분은 편의상이며 자유롭게 바꿔도 됩니다.</li><li><span class="cue-inline">(멈춤)</span> 표시는 청중 반응을 기다리거나 슬라이드를 짚는 포인트입니다.</li></ul></div>
-  <nav class="toc"><a href="#s1"><b>1</b>표지</a><a href="#s2"><b>2</b>작가</a><a href="#s3"><b>3</b>작품 특징</a><a href="#s4"><b>4</b>줄거리 ①</a><a href="#s5"><b>5</b>줄거리 ②</a><a href="#s6"><b>6</b>줄거리 ③</a><a href="#s7"><b>7</b>토론</a><a href="#s8"><b>8</b>낭독</a></nav>
+  <nav class="toc"><a href="#s1"><b>1</b>표지</a><a href="#s2"><b>2</b>작가</a><a href="#s3"><b>3</b>작품 특징</a><a href="#timeline" class="navtl"><b>＋</b>구조</a><a href="#s4"><b>4</b>줄거리 ①</a><a href="#s5"><b>5</b>줄거리 ②</a><a href="#s6"><b>6</b>줄거리 ③</a><a href="#s7"><b>7</b>토론</a><a href="#s8"><b>8</b>낭독</a></nav>
   <section class="stage" id="s1"><div class="stage-head"><span class="snum">1</span><span class="stitle">표지</span><span class="shint">슬라이드 1 / 8</span></div><figure class="slidefig"><div class="slidecard cover" data-n="1"><div class="ss-latin">Bodas de Sangre</div><div class="ss-maintitle">피의 결혼식</div><div class="ss-rule"></div><div class="ss-author">Federico García Lorca</div><div class="ss-club">SANS 연극클럽</div><span class="pgnum">1</span></div><figcaption>▲ 스크린에 띄우는 화면</figcaption></figure><div class="script"><div class="line spk-A"><span class="who">A</span><span class="say">안녕하세요, 오늘 피의 결혼식 발제 맡은 ___예요.</span></div>
 <div class="line spk-B"><span class="who">B</span><span class="say">___이고요. 다들 읽어오셨죠? 바로 시작할게요.</span></div></div></section>
 <section class="stage" id="s2"><div class="stage-head"><span class="snum">2</span><span class="stitle">작가</span><span class="shint">슬라이드 2 / 8</span></div><figure class="slidefig"><div class="slidecard" data-n="2"><div class="ss-kicker">작가</div><div class="ss-name">Federico García Lorca</div><div class="ss-dates">1898 — 1936</div><div class="ss-body">유복한 집안 · 아버지는 법률가를 원했다</div><div class="ss-body">그는 글을 썼다</div><div class="ss-body">달리 · 부뉴엘 · 당대 아방가르드를 이끌다</div><div class="ss-body">동성애자 · 집시 옹호 · 공화파 지지</div><div class="ss-body">1936년, 재판 없이 총살</div><span class="pgnum">2</span></div><figcaption>▲ 스크린에 띄우는 화면</figcaption></figure><div class="script"><div class="line spk-A"><span class="who">A</span><span class="say">이 작품 쓴 사람부터 잠깐 얘기할게요. 페데리코 가르시아 로르카. 스페인 남부 안달루시아 출신이에요. 플라멩코, 집시 음악이 있는 그 동네요. 부농의 아들로 유복하게 자랐는데 법률가를 원하는 아버지의 기대를 뒤로하고 마드리드로 올라가요. 당시 스페인 예술의 중심지였거든요.</span></div>
@@ -153,6 +175,7 @@ body{margin:0;background:var(--bg);color:var(--ink);
 <div class="bullet"><b>코러스, 광대</b> — 읽으면서 광대들 대사가 좀 낯설다 싶으셨죠?</div>
 <div class="line spk-B"><span class="who">B</span><span class="say">그게 사실 대사가 아니에요. 시예요. 로르카가 감정이 폭발하는 순간 일반 대사 대신 시를 집어넣었어요. 그리스 비극의 코러스를 시의 형식으로 부활시킨 거예요. 당시엔 파격이었어요. 초연 배우들이 어떻게 전달해야 할지 몰라서 엄청 힘들어했다는 기록이 있어요. 노래도 아니고 일반 대사도 아닌 그 중간 어딘가 — 리듬을 살리면서 감정을 전달해야 하는 거예요. 우리가 읽으면서 뭔가 낯설다고 느낀 게 바로 그거예요.</span></div>
 <div class="line spk-A"><span class="who">A</span><span class="say">그리고 원작에서 도망친 그 남자에게만 이름이 있어요 — 레오나르도. 근데 우리가 읽은 한국판에서는 그냥 <span class="q">&#x27;사내&#x27;</span>예요. 이름을 지워버린 거예요. 왜 원작에서는 이름을 줬고, 한국판에서는 지웠을까요 — 이건 나중에 같이 얘기해봐요.</span></div></div></section>
+<section class="stage" id="timeline"><div class="stage-head"><span class="snum plus">＋</span><span class="stitle">구조 타임라인 · 역순</span><span class="shint">슬라이드 추가 제안</span></div><div class="slidecard tlcard" data-n="★"><div class="ss-kicker">한눈에 보는 구조</div><div class="tl-track"><div class="tl-lab">실제 사건 순서 <span>이야기 시간순</span></div><div class="tl-row"><span class="chip "><em>신부 단장</em><b>2장</b></span><i>→</i><span class="chip "><em>혼례</em><b>3장</b></span><i>→</i><span class="chip "><em>도주 발각</em><b>4장</b></span><i>→</i><span class="chip "><em>숲·추격·죽음</em><b>6장</b></span><i>→</i><span class="chip end"><em>애도·장례</em><b>1장</b></span></div></div><div class="tl-mid">결말(죽음·장례)을 <b>맨 앞으로</b> 끌어옴 — 역순·액자 구조</div><div class="tl-track"><div class="tl-lab">무대 진행 순서 <span>우리가 읽은 순서</span></div><div class="tl-row"><span class="chip start"><em>①죽음·장례</em><b>1장</b></span><i>→</i><span class="chip "><em>②신부 단장</em><b>2장</b></span><i>→</i><span class="chip "><em>③혼례</em><b>3장</b></span><i>→</i><span class="chip "><em>④도주 발각</em><b>4장</b></span><i>→</i><span class="chip "><em>⑤광대</em><b>5장</b></span><i>→</i><span class="chip start"><em>⑥숲·죽음·길닦음</em><b>6장</b></span></div></div><span class="pgnum">＋</span></div><figcaption class="tlcap">▲ '작품 특징' 다음에 끼우면 좋은 화면 · 장례 의식으로 <b>열고</b> 무당굿·길닦음으로 <b>닫는다</b></figcaption><div class="script"><div class="line spk-A"><span class="who">A</span><span class="say">잠깐 구조만 짚을게요. 원래 이야기는 <span class="q">결혼 준비 → 혼례 → 도주 → 죽음</span> 순인데, 우리가 읽은 대본은 <b>죽음·장례(1장)를 맨 앞에</b> 놓고 과거로 돌아가요. 결말을 먼저 보여주는 역순이에요.</span></div><div class="line spk-B"><span class="who">B</span><span class="say">그래서 1장이 장례, 6장도 무당굿·길닦음 — <b>처음과 끝이 같은 '의식'</b>으로 닫히는 거죠.</span></div></div></section>
 <section class="stage" id="s4"><div class="stage-head"><span class="snum">4</span><span class="stitle">줄거리 ① · 결혼식 전</span><span class="shint">슬라이드 4 / 8</span></div><figure class="slidefig"><div class="slidecard" data-n="4"><div class="ss-kicker">줄거리 01</div><div class="ss-subtitle">결혼식 전</div><div class="ss-body">이 작품은 결말 장면으로 시작해 과거로 돌아간다.</div><div class="ss-page">페이지 005부터 결혼식 이야기가 펼쳐진다.</div><div class="ss-body">결혼을 앞둔 신부. 신랑은 성실하고 좋은 사람이다.</div><div class="ss-body">그런데 결혼식 당일 아침, 초대받지 않은 사내가 나타난다.</div><div class="ss-body">한때 신부가 사랑했던 남자. 이미 결혼한 몸이다.</div><div class="ss-def"><b>원작에서 이 사내에게만 이름이 있다</b> — 레오나르도   왜 이 사람에게만?</div><span class="pgnum">4</span></div><figcaption>▲ 스크린에 띄우는 화면</figcaption></figure><div class="script"><div class="line spk-A"><span class="who">A</span><span class="say">페이지 005부터 결혼식 이야기가 시작돼요. 신부가 옥분한테 머리를 빗기고 있어요. 결혼식 날 아침이에요. 신랑은 성실하고 좋은 사람이에요. 근데 신부 대사가 이래요. <span class="q">&#x27;폭풍우를 몰고 올 시커먼 구름, 가슴을 에이는 듯한 싸늘한 바람.&#x27;</span> 결혼식 날 아침에 이런 말을 하는 거예요. 행복해야 할 날인데.</span></div>
 <div class="line spk-B"><span class="who">B</span><span class="say">그리고 초대받지 않은 사내가 나타나요. 한때 신부가 사랑했던 남자예요. 이미 결혼한 몸이고요. 이 사내가 신부한테 말해요. <span class="q">&#x27;활활 타오르는데 가만히 있으라니, 이보다 더 큰 벌이 어디 있오?&#x27;</span> 신부는 <span class="q">&#x27;가까이 오지 말아요&#x27;</span>라고 하면서도 — <span class="q">&#x27;당신 목소리만 들어도 전 어쩔 줄을 모르겠어요&#x27;</span>라고 해요. 밀면서 당기는 거예요.</span></div>
 <div class="line spk-A"><span class="who">A</span><span class="say">앞에서 이 사내에게만 이름이 있다고 했잖아요. 레오나르도. 근데 우리 버전에서는 그냥 <span class="q">&#x27;사내&#x27;</span>예요. 이름을 지운 거예요. 지금 이 장면 읽으면서 이 사람이 어떻게 느껴지셨어요? 이름이 있는 사람으로 느껴졌나요, 그냥 사내로 느껴졌나요?</span></div>
