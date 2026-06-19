@@ -74,31 +74,37 @@ body{
 
 /* ---- Dialogue lines ---- */
 .line{
-  display:grid;grid-template-columns:var(--spkw) 1fr;gap:0 20px;
-  margin:0 0 19px;padding:1px 0;
+  display:grid;grid-template-columns:var(--spkw) 1fr;gap:0 14px;
+  margin:0 0 18px;padding:1px 0;
 }
 .line .spk{
-  text-align:right;font-weight:700;font-size:.86rem;line-height:2.06;
-  color:var(--blood);font-family:"Noto Sans KR",sans-serif;
-  white-space:nowrap;padding-top:.12em;letter-spacing:.01em;
-  border-right:2px solid var(--rule);padding-right:18px;
+  justify-self:end;align-self:start;margin-top:.46em;
+  font-family:"Noto Sans KR",sans-serif;font-weight:700;font-size:.74rem;line-height:1.4;
+  color:#fff;background:var(--c,var(--blood));
+  white-space:nowrap;padding:.22em .64em;border-radius:999px;letter-spacing:.02em;
+  box-shadow:0 1px 3px rgba(60,30,20,.18);
 }
-.line .say{padding-left:1px}
+.line .say{
+  padding:2px 0 2px 15px;
+  border-left:3px solid var(--c,var(--rule));
+  background:linear-gradient(90deg,color-mix(in srgb,var(--c,#888) 9%,transparent),transparent 40%);
+  border-radius:0 6px 6px 0;
+}
 .line+.line{margin-top:0}
 
-/* speaker color accents */
-.c-0 .spk{color:#7a1530}   /* 어머니 */
-.c-1 .spk{color:#1d5e7a}   /* 신랑 */
-.c-2 .spk{color:#a8324a}   /* 신부 */
-.c-3 .spk{color:#4a3b86}   /* 사내(레오나르도) */
-.c-4 .spk{color:#2f6d52}   /* 아내 */
-.c-5 .spk{color:#7a5a1d}   /* 아버지 */
-.c-6 .spk{color:#9a5a2a}   /* 옥분 */
-.c-7 .spk{color:#3a3a3a}   /* 거지(죽음) */
-.c-8 .spk{color:#6a6a6a}   /* 이웃여자 */
-.c-9 .spk{color:#2a6a8a}   /* 달 */
-.gwangdae .spk{color:#8a6d2a}
-.c-other .spk{color:#777}
+/* per-character color (drives name chip + spine + tint) */
+.c-0{--c:#7a1530}   /* 어머니 */
+.c-1{--c:#1d5e7a}   /* 신랑 */
+.c-2{--c:#a8324a}   /* 신부 */
+.c-3{--c:#4a3b86}   /* 사내(레오나르도) */
+.c-4{--c:#2f6d52}   /* 아내 */
+.c-5{--c:#7a5a1d}   /* 아버지 */
+.c-6{--c:#9a5a2a}   /* 옥분 */
+.c-7{--c:#3a3a3a}   /* 거지(죽음) */
+.c-8{--c:#5e5e5e}   /* 이웃여자 */
+.c-9{--c:#2a6a8a}   /* 달 */
+.gwangdae{--c:#7a5f24}  /* 광대 */
+.c-other{--c:#6a6a6a}
 
 /* ---- Stage directions ---- */
 .stage{
@@ -119,9 +125,9 @@ body{
   body{font-size:17.5px;line-height:2.0}
   .wrap{padding:0 18px 110px}
   .titlepage h1{font-size:2.9rem}
-  .line{grid-template-columns:1fr;gap:3px;margin-bottom:17px}
-  .line .spk{text-align:left;border-right:none;border-left:3px solid var(--rule);
-    padding:0 0 0 10px;margin:0 0 4px;line-height:1.6}
+  .line{grid-template-columns:1fr;gap:4px;margin-bottom:18px}
+  .line .spk{justify-self:start;margin:0 0 3px}
+  .line .say{padding-left:11px}
 }
 </style>
 </head>
